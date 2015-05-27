@@ -1,0 +1,33 @@
+html,
+body,
+#outerWrap {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+#boxWrap {
+  height: 800px;
+  width: 800px;
+  margin: 0 auto;
+}
+
+#boxWrap,
+.box {
+  box-sizing: border-box;
+  border: 6px solid #444;
+  background-color: #999;
+}
+
+.box {
+  height: 25%;
+  width: 25%;
+  float: left;
+  -webkit-transition: .3s background ease;
+  -moz-transition: .3s background ease;
+  transition: .3s background ease;
+}
+
+.box:hover {
+  cursor: pointer;
+  background: rgb(54, 79, 128);
+}
