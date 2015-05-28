@@ -9,6 +9,7 @@ body,
   height: 800px;
   width: 800px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #boxWrap,
@@ -30,4 +31,8 @@ body,
 .box:hover {
   cursor: pointer;
   background: rgb(54, 79, 128);
+}
+
+.active {
+  background-color: rgb(174, 163, 204);
 }

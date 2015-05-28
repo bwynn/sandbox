@@ -14,13 +14,22 @@ var grid = Math.pow(index, 2);
 var newgrid = {
   build: function() {
     for (var i = 1; i <= grid; i++) {
-      // create new div element with class box
+      // create new div element
       var wrap = document.getElementById("boxWrap");
       var boxed = document.createElement("div");
+      // append to the parent wrapping element
       wrap.appendChild(boxed);
+      // add class attribute
       boxed.setAttribute("class", "box");
     }
   }
 };
 
 newgrid.build();
+
+// this clearly needs to be cleaned up, and the object above needs to
+// be instantiated on page load, as opposed to calling it as an
+// anonymous function.
+var boxes = document.querySelectorAll("div.box");
+
+boxes[3].classList.add("active");
