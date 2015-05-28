@@ -13,7 +13,6 @@ var grid = function() {
  return Math.pow(newindex(), 2);
 };
 
-
 // generate grid object on page load
 var newgrid = {
   build: function() {
@@ -26,14 +25,24 @@ var newgrid = {
       // add class attribute
       boxed.setAttribute("class", "box");
     }
+  },
+  // returns a random number between 1 and the number provided by the
+  // grid function, in the default setting, returns between 1 and 16
+  pattern: function() {
+    // this object should gather it's random selection of grid elements
+    // using the fisher-yates shuffle algorithm.
+    var n = Math.floor((Math.random() * grid()) + 1);
+    return n;
   }
 };
 
 newgrid.build();
 
-// this clearly needs to be cleaned up, and the object above needs to
-// be instantiated on page load, as opposed to calling it as an
-// anonymous function.
-var boxes = document.querySelectorAll("div.box");
+// this self executing function determines the squares to assign the
+// active class to as determined by the returned value of the
+// newgrid.pattern() method.
+(function(){
+  var boxes = document.querySelectorAll("div.box");
 
-boxes[3].classList.add("active");
+  boxes[newgrid.pattern()].classList.add("active");
+})();
