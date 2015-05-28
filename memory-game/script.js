@@ -31,8 +31,8 @@ var newgrid = {
   pattern: function() {
     // this object should gather it's random selection of grid elements
     // using the fisher-yates shuffle algorithm.
-    var n = Math.floor((Math.random() * grid()) + 1);
-    return n;
+      var n = Math.floor((Math.random() * grid()) + 0);
+      return n;
   }
 };
 
@@ -43,6 +43,5 @@ newgrid.build();
 // newgrid.pattern() method.
 (function(){
   var boxes = document.querySelectorAll("div.box");
-
   boxes[newgrid.pattern()].classList.add("active");
 })();
