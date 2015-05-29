@@ -45,12 +45,17 @@ newgrid.build();
   var boxes = document.querySelectorAll("div.box");
   // creates active object which is the randomly assigned box
   var active = boxes[newgrid.pattern()];
-  var sibling = active.sibling;
+  var sibling = active.nextSibling;
+  var newSib = sibling.nextSibling;
   // adds active value to the active box
   active.classList.add("active");
+  sibling.classList.add("active");
+  newSib.classList.add("active");
   // sets the timeout to hide the active box
   setTimeout(function() {
     active.classList.add("hide");
+    sibling.classList.add("hide");
+    newSib.classList.add("hide");
   },3000);
 })();
 
@@ -64,8 +69,14 @@ newgrid.build();
     // conditional to validate selected boxes attributes
       if (this.getAttributeNode('class').nodeValue == "box active hide") {
         console.log("That was correct!");
+        this.classList.remove("hide");
       } else {
-        console.log("go fish!")
+        // visual indication that the user got the wrong answer
+        this.classList.add("wrong");
+        alert("Try Again!");
+        setTimeout(function() {
+          location.reload();
+        },2000);
       }
     },false);
   }
