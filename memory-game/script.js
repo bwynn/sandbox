@@ -56,26 +56,20 @@ newgrid.build();
 
 // add event handler that uses a conditional statement to determine
 // if the box clicked has the active class.
-
-var boxes = document.querySelectorAll("div.box");
-// loop through all iterations of boxes
-for (var i = 0; i < boxes.length; i++) {
-  boxes[i].addEventListener("click", function(e) {
-  // get attribute of selected box
-  var selected = this.getAttribute("class");
-  // conditional to validate selected boxes attributes
-    if (selected.includes("active")) {
-      alert("That was correct!");
-    } else {
-      alert("go fish!")
-    }
-  },false);
-}
-
-// if yes, then alert message for the time being with success
-/*if (this.hasAttribute("class", "active")) {
-  alert("You got that right!");
-} else {
-    // if no, alert message for try again
-    alert("try again sucka!");
-}*/
+(function() {
+  var boxes = document.querySelectorAll("div.box");
+  // loop through all iterations of boxes
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].addEventListener("click", function(e) {
+    // get attribute of selected box
+    var selected = this.getAttribute("class");
+    console.log(selected);
+    // conditional to validate selected boxes attributes
+      if (selected.classList == "box active") {
+        console.log("That was correct!");
+      } else {
+        console.log("go fish!")
+      }
+    },false);
+  }
+})();
