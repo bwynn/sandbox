@@ -38,10 +38,17 @@ var newgrid = {
 
 newgrid.build();
 
-// this self executing function determines the squares to assign the
+// this immediate executing function determines the squares to assign the
 // active class to as determined by the returned value of the
 // newgrid.pattern() method.
 (function(){
   var boxes = document.querySelectorAll("div.box");
-  boxes[newgrid.pattern()].classList.add("active");
+  // creates active object which is the randomly assigned box
+  var active = boxes[newgrid.pattern()];
+  // adds active value to the active box
+  active.classList.add("active");
+  // sets the timeout to hide the active box
+  setTimeout(function() {
+    active.classList.remove("active");
+  },3000);
 })();

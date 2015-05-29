@@ -35,4 +35,5 @@ body,
 
 .active {
   background-color: rgb(174, 163, 204);
+  display: hidden;
 }
