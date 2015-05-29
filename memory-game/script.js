@@ -68,12 +68,17 @@ newgrid.build();
     boxes[i].addEventListener("click", function(e) {
     // conditional to validate selected boxes attributes
       if (this.getAttributeNode('class').nodeValue == "box active hide") {
-        console.log("That was correct!");
+        // this shows the user the same color selection that they had
+        // been originally shown
         this.classList.remove("hide");
       } else {
         // visual indication that the user got the wrong answer
         this.classList.add("wrong");
+        // right now alert is present, but this should be
+        // a pop up modal that prevents the user from further interaction
         alert("Try Again!");
+        // after 2 seconds of seeing the message, the user gets to
+        // try again.
         setTimeout(function() {
           location.reload();
         },2000);
