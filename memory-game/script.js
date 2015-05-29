@@ -49,6 +49,24 @@ newgrid.build();
   active.classList.add("active");
   // sets the timeout to hide the active box
   setTimeout(function() {
-    active.classList.remove("active");
+    active.classList.add("hide");
   },3000);
 })();
+
+// add event handler that uses a conditional statement to determine
+// if the box clicked has the active class.
+var boxes = document.querySelectorAll("div.box");
+// loop through all iterations of boxes
+for (var i = 0; i < boxes.length; i++) {
+  boxes[i].addEventListener("click", function(e) {
+    // if yes, then alert message for the time being with success
+    if (this.hasAttribute("class", "active")) {
+      alert("You got that right!");
+    } else {
+      {
+        // if no, alert message for try again
+        alert("try again sucka!");
+      }
+    }
+  },false);
+}
