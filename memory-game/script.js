@@ -61,11 +61,8 @@ newgrid.build();
   // loop through all iterations of boxes
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function(e) {
-    // get attribute of selected box
-    var selected = this.getAttribute("class");
-    console.log(selected);
     // conditional to validate selected boxes attributes
-      if (selected.classList == "box active") {
+      if (this.getAttributeNode('class').nodeValue == "box active hide") {
         console.log("That was correct!");
       } else {
         console.log("go fish!")
