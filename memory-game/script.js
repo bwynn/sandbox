@@ -41,13 +41,21 @@ newgrid.build();
 // this immediate executing function determines the squares to assign the
 // active class to as determined by the returned value of the
 // newgrid.pattern() method.
-(function(){
+//(function(){
   var boxes = document.querySelectorAll("div.box");
   // creates active object which is the randomly assigned box
   var active = boxes[newgrid.pattern()];
-  var sibling = active.nextSibling;
-  var newSib = sibling.nextSibling;
+  var sibling, newSib;
+
   // adds active value to the active box
+  if (active == document.querySelectorAll("div.box")[15]) {
+    sibling = active.previousSibling;
+    newSib = sibling.previousSibling;
+  } else {
+    sibling = active.nextSibling;
+    newSib = sibling.nextSibling;
+  }
+
   active.classList.add("active");
   sibling.classList.add("active");
   newSib.classList.add("active");
@@ -57,7 +65,7 @@ newgrid.build();
     sibling.classList.add("hide");
     newSib.classList.add("hide");
   },3000);
-})();
+//})();
 
 // add event handler that uses a conditional statement to determine
 // if the box clicked has the active class.
