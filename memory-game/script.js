@@ -36,12 +36,33 @@ var newgrid = {
   }
 };
 
+// new object to store the active box objects
+var newcache = {
+  getElements: function(){
+    // get elements
+
+    // the problem right now is that even if this object method is
+    // invoked after the .hide class has been removed from the
+    // dom node, this function is gathering the information
+    // prior to user interaction, which is always returning a true
+    // value. This object function needs to gather the
+    // attribute value after the user has interacted with
+    // the box elements. 
+    var elems = document.getElementsByClassName("active");
+    // loop through objects to determine boolean for
+    // class .hide attribute
+      for (var i = 0; i < elems.length; i++) {
+        return elems[i].hasAttribute("class", "hide");
+      }
+    }
+  }
+
 newgrid.build();
 
 // this immediate executing function determines the squares to assign the
 // active class to as determined by the returned value of the
 // newgrid.pattern() method.
-//(function(){
+(function(){
   var boxes = document.querySelectorAll("div.box");
   // creates active object which is the randomly assigned box
   var active = boxes[newgrid.pattern()];
@@ -64,8 +85,8 @@ newgrid.build();
     active.classList.add("hide");
     sibling.classList.add("hide");
     newSib.classList.add("hide");
-  },3000);
-//})();
+  },2000);
+})();
 
 // add event handler that uses a conditional statement to determine
 // if the box clicked has the active class.
@@ -89,7 +110,7 @@ newgrid.build();
         // try again.
         setTimeout(function() {
           location.reload();
-        },2000);
+        },3000);
       }
     },false);
   }
