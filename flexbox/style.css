@@ -1,0 +1,123 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+}
+
+body {
+  font-size: 18px;
+  font-family: helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 2.4em;
+}
+
+h2 {
+  font-size: 2.1em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+p {
+  font-size: 1em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li > a {
+  font-size: 1.2em;
+}
+
+/* =================== Main layout element styles =========== */
+
+header {
+  width: inherit;
+  background-color: #999;
+  box-shadow: 1px 1px 1px 1px #666;
+  position: relative;
+  z-index: 10;
+}
+
+#mainWrap {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  min-height: 640px;
+  position: relative;
+  z-index: 1;
+}
+
+#mainWrap > nav {
+  -webkit-flex: 3 1 20%;
+  flex: 3 1 20%;
+  -webkit-order: 1;
+  order: 1;
+  background-color: #888;
+}
+
+#mainWrap > section {
+  -webkit-flex: 3 1 80%;
+  flex: 3 1 80%;
+  -webkit-order: 2;
+  order: 2;
+  background-color: #777;
+}
+
+footer {
+  background-color: #999;
+  box-shadow: -1px -1px 1px 1px #666;
+}
+
+@media only screen and (max-width: 767px) {
+  #mainWrap {
+    -webkit-flex-flow: column;
+    flex-flow: column;
+  }
+
+  #mainWrap > nav {
+    -webkit-flex: 1 20%;
+    flex: 1 20%;
+  }
+}
+
+/* ================= Header/Nav Styles ================= */
+
+#globalNav > ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row-wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+#globalNav > ul > li {
+  padding: .5em 1em;
+  display: inline-block;
+}
+
+/* =================== LocalNav Styles =================== */
+#localNav ul {
+  padding: 0;
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* =================== Section Styles ==================== */
+#contentWrap {
+  padding: 1em;
+}
