@@ -1,0 +1,1 @@
+This template project is based around building a flexible template using minimal media queries and css, relying on css flexboxes. The intention is to build a layout for a single page application without the use of static dimensions or widths. 
