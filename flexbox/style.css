@@ -8,8 +8,13 @@ body,
 h1,
 h2,
 h3,
-ul {
+ul,
+figure {
   margin: 0;
+}
+
+ul {
+  padding: 0;
 }
 
 body {
@@ -74,6 +79,7 @@ header {
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   min-height: 800px;
+  height: 90%;
   position: relative;
   z-index: 1;
 }
@@ -116,6 +122,10 @@ footer {
 }
 
 /* =================== LocalNav Styles =================== */
+#localNav {
+  border-right: 2px solid #666;
+  box-sizing: border-box;
+}
 #localNav ul {
   padding: 0;
   display: -webkit-flex;
@@ -142,8 +152,49 @@ footer {
 }
 
 /* =================== Section Styles ==================== */
+section#details {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+}
+
+figure.img {
+  width: 100%;
+  background-color: goldenrod;
+  -webkit-flex: 4;
+  flex: 4;
+}
+
 #contentWrap {
   padding: 1em;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex: 2;
+  flex: 2;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+}
+
+#contentWrap > ul {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+  width: 100%;
+}
+
+#contentWrap > ul > li {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  background-color: #555;
+  text-align: center;
+}
+
+#contentWrap > ul > li:nth-child(even) {
+  background-color: inherit;
 }
 
 /* =================== Footer ============================= */
@@ -169,7 +220,18 @@ footer p {
   #localNav ul {
     -webkit-flex-direction: row;
     flex-direction: row;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
+    -webkit-align-content: stretch;
+    align-content: stretch;
   }
+
+  #localNav li {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+
+  #contentWrap > ul {
+    -webkit-flex-direction: row wrap;
+    flex-direction: row wrap;
+  }
+
 }
