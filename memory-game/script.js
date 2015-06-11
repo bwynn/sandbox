@@ -36,27 +36,6 @@ var newgrid = {
   }
 };
 
-// new object to store the active box objects
-var newcache = {
-  getElements: function(){
-    // get elements
-
-    // the problem right now is that even if this object method is
-    // invoked after the .hide class has been removed from the
-    // dom node, this function is gathering the information
-    // prior to user interaction, which is always returning a true
-    // value. This object function needs to gather the
-    // attribute value after the user has interacted with
-    // the box elements. 
-    var elems = document.getElementsByClassName("active");
-    // loop through objects to determine boolean for
-    // class .hide attribute
-      for (var i = 0; i < elems.length; i++) {
-        return elems[i].hasAttribute("class", "hide");
-      }
-    }
-  }
-
 newgrid.build();
 
 // this immediate executing function determines the squares to assign the
@@ -92,6 +71,8 @@ newgrid.build();
 // if the box clicked has the active class.
 (function() {
   var boxes = document.querySelectorAll("div.box");
+  // declare an array to store the items clicked on
+  var values = [];
   // loop through all iterations of boxes
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function(e) {
@@ -100,6 +81,12 @@ newgrid.build();
         // this shows the user the same color selection that they had
         // been originally shown
         this.classList.remove("hide");
+        // add the clicked value to the values array
+        values.push(this);
+        // invoke the winner function
+        if (values.length === 3) {
+          return alert("you win!");
+        }
       } else {
         // visual indication that the user got the wrong answer
         this.classList.add("wrong");
@@ -110,8 +97,12 @@ newgrid.build();
         // try again.
         setTimeout(function() {
           location.reload();
-        },3000);
+        });
       }
     },false);
   }
 })();
+
+function winner() {
+
+}
