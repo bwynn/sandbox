@@ -44,8 +44,8 @@ newgrid.build();
 (function(){
   var boxes = document.querySelectorAll("div.box");
   // creates active object which is the randomly assigned box
-  var active = boxes[newgrid.pattern()];
-  var sibling, newSib;
+  var active = boxes[newgrid.pattern()],
+      sibling, newSib;
 
   // adds active value to the active box
   if (active == document.querySelectorAll("div.box")[15]) {
@@ -94,11 +94,7 @@ newgrid.build();
         // right now alert is present, but this should be
         // a pop up modal that prevents the user from further interaction
         alert("Try Again!");
-        // after 2 seconds of seeing the message, the user gets to
-        // try again.
-        setTimeout(function() {
-          location.reload();
-        });
+        location.reload();
       }
     },false);
   }

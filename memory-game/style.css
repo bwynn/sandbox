@@ -23,9 +23,9 @@ body,
   height: 25%;
   width: 25%;
   float: left;
-  -webkit-transition: .3s background ease;
-  -moz-transition: .3s background ease;
-  transition: .3s background ease;
+  -webkit-transition: .3s background ease-in-out;
+  -moz-transition: .3s background ease-in-out;
+  transition: .3s background ease-in-out;
 }
 
 .box:hover {
