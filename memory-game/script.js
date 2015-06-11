@@ -35,7 +35,7 @@ var newgrid = {
       return n;
   }
 };
-
+// invoke newgrid.build()
 newgrid.build();
 
 // this immediate executing function determines the squares to assign the
@@ -85,7 +85,8 @@ newgrid.build();
         values.push(this);
         // invoke the winner function
         if (values.length === 3) {
-          return alert("you win!");
+          alert("you win!");
+          location.reload();
         }
       } else {
         // visual indication that the user got the wrong answer
@@ -102,7 +103,3 @@ newgrid.build();
     },false);
   }
 })();
-
-function winner() {
-
-}
