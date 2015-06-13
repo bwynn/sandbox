@@ -18,6 +18,16 @@ newBike.gearInches = function(arg1, arg2) {
   return (arg1/arg2).toFixed(3);
 };
 
+newBike.answer = function() {
+  var rings = parseInt(chainring.value);
+  var cassette = parseInt(cogs.value);
+  var answer = document.getElementById("answer");
+  return answer.innerHTML = newBike.gearInches(rings, cassette) + " gear inches.";
+  //console.log(rings);
+  //console.log(cassette);
+  //console.log(newBike.gearInches(parseInt(chainring.value), parseInt(cogs.value)));
+}
+
 // get first input value
 var chnring = document.getElementsByTagName("input")[0];
 // get second input value
@@ -38,13 +48,7 @@ submit.addEventListener("click", function(e) {
   // check their gear range
   if (chnring.value !== "" &&
       cogs.value !== "") {
-        var rings = parseInt(chainring.value);
-        var cassette = parseInt(cogs.value);
-        var answer = document.getElementById("answer");
-        return answer.innerHTML = newBike.gearInches(rings, cassette) + " gear inches.";
-        //console.log(rings);
-        //console.log(cassette);
-        //console.log(newBike.gearInches(parseInt(chainring.value), parseInt(cogs.value)));
+        newBike.answer();
             }
   // if no values entered, let the user know!
   else {
