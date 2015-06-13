@@ -10,14 +10,12 @@ Bike.prototype.wheelDiameter = function(arg1) {
   return arg1;
 };
 
+// create a new bike object
 var newBike = new Bike();
 
-var myrange = newBike.range(34,28); // creates a compact
-var mydiameter = newBike.wheelDiameter(28) // fake wheel diameter, close to road Bike
-
 // equation for gear inches
-newBike.gearInches = function() {
-  return mydiameter/myrange;
+newBike.gearInches = function(arg1, arg2) {
+  return (arg1/arg2).toFixed(3);
 };
 
 // get first input value
@@ -33,14 +31,21 @@ var whl = document.getElementById('wheelsize');
 submit.addEventListener("click", function(e) {
   // the the user value from the select options
   var wheel = whl.options[whl.selectedIndex].value;
+  // prevent default
+  e.preventDefault();
+
   // checks to see if the user has input the values necessary to
   // check their gear range
   if (chnring.value !== "" &&
       cogs.value !== "") {
-        console.log(parseInt(chainring.value));
-        console.log(parseInt(cogs.value));
-        console.log(wheel);
-      }
+        var rings = parseInt(chainring.value);
+        var cassette = parseInt(cogs.value);
+        var answer = document.getElementById("answer");
+        return answer.innerHTML = newBike.gearInches(rings, cassette) + " gear inches.";
+        //console.log(rings);
+        //console.log(cassette);
+        //console.log(newBike.gearInches(parseInt(chainring.value), parseInt(cogs.value)));
+            }
   // if no values entered, let the user know!
   else {
         return console.log("enter a value");
