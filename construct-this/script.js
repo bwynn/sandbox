@@ -2,31 +2,42 @@
   // create a new constructor function
   function Bike() {};
 
-  // arg1 = chainring teeth, arg2 = cassette teeth
-  Bike.prototype.range = function(arg1, arg2) {
-    return arg1/arg2;
-  };
-
-  Bike.prototype.wheelDiameter = function(arg1) {
-    return arg1;
+  Bike.prototype.wheelDiameter = function() {
+    // get the select element
+    var whl = document.getElementById('wheelsize');
+    // the the user value from the select options
+    var wheel = whl.options[whl.selectedIndex].text;
+    // prevent default
+    if (wheel == "26") {
+      return 26;
+    } else if (wheel == "27 1/4") {
+      return 27.25;
+    } else if (wheel == "650b") {
+      return 27.5;
+    } else if (wheel == "700c") {
+      return 29;
+    } else if (wheel == "29er") {
+      return 29;
+    }
   };
 
   // create a new bike object
   var newBike = new Bike();
 
   // equation for gear inches
-  newBike.gearInches = function(arg1, arg2) {
-    return (arg1/arg2).toFixed(3);
+  newBike.gearInches = function(arg1, arg2, arg3) {
+    return (arg1 * (arg2/arg3)).toFixed(3);
   };
 
   newBike.answer = function() {
     var rings = parseInt(chainring.value);
     var cassette = parseInt(cogs.value);
+    var wheel = newBike.wheelDiameter();
     var answer = document.getElementById("answer");
-    return answer.innerHTML = newBike.gearInches(rings, cassette) + " gear inches.";
     //console.log(rings);
     //console.log(cassette);
-    //console.log(newBike.gearInches(parseInt(chainring.value), parseInt(cogs.value)));
+    //console.log(newBike.gearInches(wheel, rings, cassette));
+    return answer.innerHTML = newBike.gearInches(wheel, rings, cassette) + " gear inches.";
   }
 
   // get first input value
@@ -35,14 +46,8 @@
   var cogs = document.getElementsByTagName("input")[1];
   // get the submit button to trigger the calculation
   var submit = document.getElementById('gearInch');
-  // get the select element
-  var whl = document.getElementById('wheelsize');
-
   // create an event that looks at the input values from the user
   submit.addEventListener("click", function(e) {
-    // the the user value from the select options
-    var wheel = whl.options[whl.selectedIndex].value;
-    // prevent default
     e.preventDefault();
 
     // checks to see if the user has input the values necessary to
