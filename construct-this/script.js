@@ -2,12 +2,16 @@
   // create a new constructor function
   function Bike() {};
 
+  // create the prototype constructor object for the wheel diameter function
   Bike.prototype.wheelDiameter = function() {
     // get the select element
     var whl = document.getElementById('wheelsize');
     // the the user value from the select options
     var wheel = whl.options[whl.selectedIndex].text;
     // prevent default
+
+    // run conditional to gather user selected option and return the inch
+    // converted value.
     if (wheel == "26") {
       return 26;
     } else if (wheel == "27 1/4") {
@@ -46,6 +50,7 @@
   var cogs = document.getElementsByTagName("input")[1];
   // get the submit button to trigger the calculation
   var submit = document.getElementById('gearInch');
+  
   // create an event that looks at the input values from the user
   submit.addEventListener("click", function(e) {
     e.preventDefault();

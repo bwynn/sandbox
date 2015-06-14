@@ -1,0 +1,63 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: helvetica, sans-serif;
+  font-size: 18px;
+}
+
+#wrap {
+  height: inherit;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form,
+table {
+  max-width: 600px;
+  width: 95%;
+}
+
+label,
+button[type="submit"],
+input[type="text"],
+select {
+  display: block;
+}
+
+button[type="submit"],
+input[type="text"],
+select {
+  margin: 0 auto;
+}
+
+form {
+  order: 1;
+}
+
+table {
+  order: 2;
+}
+
+label,
+input[type="text"],
+td {
+  text-align: center;
+}
+
+input[type="text"],
+select {
+  width: inherit;
+}
+
+select {
+  font-size: 24px;
+}
