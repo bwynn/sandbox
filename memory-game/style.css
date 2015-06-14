@@ -6,8 +6,8 @@ body,
   margin: 0;
 }
 #boxWrap {
-  height: 800px;
-  width: 800px;
+  height: 100%;
+  width: 55%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@ body,
 #boxWrap,
 .box {
   box-sizing: border-box;
-  border: 6px solid #444;
+  border: 7px solid #444;
   background-color: #999;
 }
 
