@@ -2,24 +2,25 @@
 <html>
   <head>
     <title>Construct this</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel='stylesheet' href='style.css'/>
   </head>
   <body>
     <div id='wrap'>
       <h1>Gear Inch Calculator</h1>
       <form>
-        <label for='chainring'>Chainring</label><br/>
-        <input type='text' id='chainring'/><br/>
-        <label for='cassette'>Cassette teeth</label><br/>
-        <input type='text' id='cassette'/><br/>
-        <label for='wheelsize'>Wheel Size</label><br/>
+        <label for='chainring'>Chainring</label>
+        <input type='text' id='chainring' placeholder="Enter # of teeth on chainring"/>
+        <label for='cassette'>Cassette teeth</label>
+        <input type='text' id='cassette' placeholder="Enter # of teeth on cassette"/>
+        <label for='wheelsize'>Wheel Size</label>
         <select id='wheelsize'>
           <option>26</option>
           <option>27 1/4</option>
           <option>650b</option>
           <option>700c</option>
           <option>29er</option>
-        </select><br/>
+        </select>
         <button type='submit' id='gearInch'/>Get Gear Inches</button>
       </form>
       <table id='gearInches'>
