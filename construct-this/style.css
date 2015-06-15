@@ -96,7 +96,7 @@ select:focus {
 }
 
 button[type="submit"] {
-  margin: 1em auto;
+  margin: 1em auto 0;
   background: #1e3431;
   color:  #EDF8FF;
   border: 2px solid #4B8F94;
@@ -129,10 +129,9 @@ label {
   }
   input[type="text"],
   form {
-    font-size: 1em;
+    font-size: .9em;
   }
   button[type="submit"] {
     margin: .2em auto;
-    color: #CFEDED;
   }
 }
