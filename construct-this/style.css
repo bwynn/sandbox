@@ -4,19 +4,19 @@ html, body {
 }
 
 body, input, textarea, keygen, select, button {
-  font-family: helvetica, sans-serif;
+  font-family: 'Arvo', helvetica, sans-serif;
   line-height: 1.5;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background-color: #EDF8FF;
+  background-color: #fbfeff;
 }
 
 body,
 input[type="text"] {
-  color: #376962;
+  color: #1e3431;
 }
 
 body,
@@ -25,11 +25,11 @@ select {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.6em;
   margin: 0;
   padding: .4em;
-  background-color: #376962;
-  color: #EDF8FF;
+  background-color: #1e3431;
+  color: #fbfeff;
   border-bottom: 2px solid #54A196;
 }
 
@@ -90,13 +90,14 @@ input[type="text"]:focus{
 }
 
 input[type="text"]:focus,
-button[type="submit"]:focus {
+button[type="submit"]:focus,
+select:focus {
   outline: none;
 }
 
 button[type="submit"] {
   margin: 1em auto;
-  background: #376962;
+  background: #1e3431;
   color:  #EDF8FF;
   border: 2px solid #4B8F94;
   cursor: pointer;
@@ -114,7 +115,6 @@ input[type="text"] {
 label {
   padding-left: .5em;
 }
-
 /* ========================== Media Queries ======================= */
 
 @media only screen and (max-width: 480px) {
