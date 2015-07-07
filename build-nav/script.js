@@ -1,11 +1,21 @@
 // create an immediate instantiated function, thus protecting the content
 //(function() {
-  // create an object with an array to help us determine the array length,
+
+  // constructor function to fiddle around with
+  /*var Collection = function() {};
+
+  Collection.prototype.albums = function(arg) {
+    var result = [];
+    result.push[arg];
+    return result;
+  }*/
+
+  // create an object literal with an array to help us determine the array length,
   // in practical application, this will be how we determine the number of
   // navigation list items to create, which can then get the pertinent information
   // to populate
   var collection = {
-    albums: ['one', 'two', 'three']
+    albums: ['one', 'two', 'three', 'seventeen', 'forty two', 'four']
   };
 
   // create an anon function to get length of albums
