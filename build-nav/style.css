@@ -4,7 +4,43 @@ body {
   width: 100%;
 }
 
-p.navigation-boxes {
+body {
+  margin: 0;
+}
+
+a {
+  text-align: center;
+}
+
+ul#placement {
+  padding: 0;
+}
+
+/* Set the placement container as a flexible container, allowing its children
+elements to flex depending on viewport.*/
+#placement {
+  margin: .5em;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+/* style declarations for the global navigation container boxes */
+li.navigation-boxes {
   display: inline-block;
-  width: 25%;
+  background-color: #999;
+  height: 50px;
+  width: 250px;
+  margin: .5em;
+}
+
+/* style declaration to allow anchor tags to inherit parent containers
+for nav */
+a.nav-content {
+  display: block;
+  height: inherit;
 }
