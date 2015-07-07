@@ -23,9 +23,22 @@
     return collection.albums.length;
   };
 
+  // anon function to create container boxes
+    // create for loop using albumLength method for sizing
+      // get placement container
+      // create div container element
+      // assign class attribute to newly created element
+      // propagate creation of boxes
+
   // function to build the list items -- in this case it's a p element, but
   // it's demonstrating proof of concept
   var buildIt = function() {
+    // get number of container objects from above anon function
+    // loop through the container elements
+      // create semantic element for content placement
+      // apply class attributes as necessary
+      // append elements into containers
+      // append content from collection object to set content
     for (var i = 0; i < albumLength(); i++) {
       // create element
       var placement = document.getElementById("placement");
