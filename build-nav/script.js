@@ -34,6 +34,9 @@
       // append content into its container
       placement.appendChild(elem);
 
+      // set the class attribute to allow for styling of elements.
+      elem.setAttribute("class", "navigation-boxes");
+
       // append content based on the collection.albums' array content.
       elem.innerHTML = collection.albums[i];
     }
