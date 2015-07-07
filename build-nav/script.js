@@ -19,7 +19,7 @@
     // create for loop using albumLength method for sizing
     for (var i = 0; i < albumLength(); i++) {
       // get placement container
-      var placement = document.getElementById("placement"),
+      var placement = document.getElementById("globalNavContent"),
       // create div container element
           cont = document.createElement("li");
       // assign class attribute to newly created element
