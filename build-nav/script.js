@@ -61,10 +61,10 @@
 
 // function to perform an repeatable task generating dom content and appending
 // based on the argument, which would be defined within the function it is
-// being called from. 
+// being called from.
 var builder = function(arg) {
   // get container to append content
-  var container = document.getElementById("globalNav");
+  var container = document.getElementById("container");
   // define element to create
   var elem = document.createElement("li");
   // define content via argument to pass in for text response
@@ -79,3 +79,14 @@ var testSubject = function() {
   // invoke builder function using def as argument
   builder(def);
 };
+
+var testSubject2 = function() {
+  var newContent = "Here's a second string being processed the same way";
+  // invoke builder function using newContent as argument
+  builder(newContent);
+}
+
+window.onload = function() {
+  testSubject();
+  testSubject2();
+}
