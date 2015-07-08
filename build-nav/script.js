@@ -62,31 +62,69 @@
 // function to perform an repeatable task generating dom content and appending
 // based on the argument, which would be defined within the function it is
 // being called from.
-var builder = function(arg) {
-  // get container to append content
-  var container = document.getElementById("container");
-  // define element to create
-  var elem = document.createElement("li");
-  // define content via argument to pass in for text response
-  elem.innerHTML = arg;
-  // return new content to appended container
-  return container.appendChild(elem);
-}
+(function() {
+  /*var builder = function(arg) {
+    // get container to append content
+    var container = document.getElementById("container");
+    // define element to create
+    var elem = document.createElement("li");
+    // define content via argument to pass in for text response
+    elem.innerHTML = arg;
+    // return new content to appended container
+    return container.appendChild(elem);
+  }
 
-var testSubject = function() {
-  // define variable to be passed as the argument of the builder function
-  var def = "Some string being passed";
-  // invoke builder function using def as argument
-  builder(def);
-};
+  var testSubject = function() {
+    // define variable to be passed as the argument of the builder function
+    var def = "Some string being passed";
+    // invoke builder function using def as argument
+    builder(def);
+  }();
 
-var testSubject2 = function() {
-  var newContent = "Here's a second string being processed the same way";
-  // invoke builder function using newContent as argument
-  builder(newContent);
-}
+  var testSubject2 = function() {
+    var newContent = "Here's a second string being processed the same way";
+    // invoke builder function using newContent as argument
+    builder(newContent);
+  }();
 
-window.onload = function() {
-  testSubject();
-  testSubject2();
-}
+  var testSubject3 = function() {
+    var newContent = 12;
+    // invoke builder function using newContent as argument
+    builder(newContent);
+  }();*/
+
+  var build = {
+    container: function(arg) {
+      // get container to append content
+      var container = document.getElementById("container");
+      // define element to create
+      var elem = document.createElement("li");
+      // define content via argument to pass in for text response
+      elem.innerHTML = arg;
+      // return new content to appended container
+      return container.appendChild(elem);
+    },
+    testSubject: function() {
+      // define variable to be passed as the argument of the builder function
+      var def = "Some string being passed";
+      // invoke builder function using def as argument
+      build.container(def);
+    },
+    testSubject2: function() {
+      var newContent = "Here's a second string being processed the same way";
+      // invoke builder function using newContent as argument
+      build.container(newContent);
+    },
+    testSubject3: function() {
+      var newContent = 12;
+      // invoke builder function using newContent as argument
+      build.container(newContent);
+    }
+  };
+
+  window.onload = function() {
+    build.testSubject();
+    build.testSubject2();
+    build.testSubject3();
+  }
+}());
