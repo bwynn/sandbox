@@ -58,3 +58,24 @@
     }
   }();
 }());
+
+// function to perform an repeatable task generating dom content and appending
+// based on the argument, which would be defined within the function it is
+// being called from. 
+var builder = function(arg) {
+  // get container to append content
+  var container = document.getElementById("globalNav");
+  // define element to create
+  var elem = document.createElement("li");
+  // define content via argument to pass in for text response
+  elem.innerHTML = arg;
+  // return new content to appended container
+  return container.appendChild(elem);
+}
+
+var testSubject = function() {
+  // define variable to be passed as the argument of the builder function
+  var def = "Some string being passed";
+  // invoke builder function using def as argument
+  builder(def);
+};
