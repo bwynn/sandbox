@@ -41,9 +41,10 @@
       // active class to as determined by the returned value of the
       // newgrid.pattern() method.
       patternLogic: function() {
-        var boxes = document.querySelectorAll("div.box");
-        // creates active object which is the randomly assigned box
-        var active = boxes[view.newgrid.pattern()],
+        // get box
+        var boxes = document.querySelectorAll("div.box"),
+            // creates active object which is the randomly assigned box
+            active = boxes[view.newgrid.pattern()],
             sibling, newSib;
 
         // adds active value to the active box

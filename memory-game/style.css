@@ -7,6 +7,7 @@ body,
 }
 #boxWrap {
   height: 100%;
+  max-height: 800px;
   width: 55%;
   margin: 0 auto;
   overflow: hidden;
@@ -20,7 +21,7 @@ body,
 }
 
 .box {
-  height: 25%;
+  height: 25.1%;
   width: 25%;
   float: left;
   -webkit-transition: .3s background ease-in-out;
