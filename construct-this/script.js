@@ -1,5 +1,4 @@
 (function(){
-
   // Originally used a constructor function to build up this page, however, this page and code is much more suitable for an object literal, which is what's being implemented here now.
   var newBike = {
     wheelDiameter: function() {
@@ -27,38 +26,50 @@
       return (arg1 * (arg2/arg3)).toFixed(3);
     },
     answer: function() {
-      var rings = parseInt(chnring.value);
-      var cassette = parseInt(cogs.value);
-      var wheel = newBike.wheelDiameter();
-      var answer = document.getElementById("answer");
+      var rings = parseInt(elemMap.chnring.value);
+      var cassette = parseInt(elemMap.cogs.value);
       //console.log(rings);
       //console.log(cassette);
-      //console.log(newBike.gearInches(wheel, rings, cassette));
-      return answer.innerHTML = newBike.gearInches(wheel, rings, cassette) + " gear inches.";
+      //console.log(newBike.gearInches(inputMap.wheel, rings, cassette));
+      elemMap.answer.innerHTML = newBike.gearInches(elemMap.wheel, rings, cassette) + " gear inches.";
     }
   };
 
-  // get first input value
-  var chnring = document.getElementsByTagName("input")[0];
-  // get second input value
-  var cogs = document.getElementsByTagName("input")[1];
-  // get the submit button to trigger the calculation
-  var submit = document.getElementById('gearInch');
+  var elemMap = {
+    chnring: document.getElementsByTagName("input")[0],
+    cogs: document.getElementsByTagName("input")[1],
+    wheel: newBike.wheelDiameter(),
+    answer: document.getElementById("answer"),
+    submit: document.getElementById('gearInch')
+  }
 
-  // create an event that looks at the input values from the user
-  submit.addEventListener("click", function(e) {
-    e.preventDefault();
-
+  function getGears() {
+    // get first input value
+    var chnring = document.getElementsByTagName("input")[0];
+    // get second input value
+    var cogs = document.getElementsByTagName("input")[1];
     // checks to see if the user has input the values necessary to
     // check their gear range
-    if (chnring.value !== "" &&
-        cogs.value !== "") {
+    if (elemMap.chnring.value !== "" &&
+        elemMap.cogs.value !== "") {
           return newBike.answer();
               }
-    // if no values entered, let the user know!
     else {
-          var answer = document.getElementById("answer");
-          return answer.innerHTML = "Please fill in missing fields";
+          elemMap.answer.innerHTML = "Please fill in missing fields";
         }
-  },false);
-})();
+  }
+
+  function onSubmitChange() {
+    // create an event that looks at the input values from the user
+    elemMap.submit.addEventListener("click", function(e) {
+      e.preventDefault();
+      getGears();
+    },false);
+  }
+
+  function init() {
+    onSubmitChange();
+  }
+
+  return init();
+}());

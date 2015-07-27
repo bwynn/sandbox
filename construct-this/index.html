@@ -4,33 +4,40 @@
     <title>Construct this</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' href='style.css'/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel='stylesheet' href='style.css'/> -->
   </head>
   <body>
-    <div id='wrap'>
-      <h1>Gear Inch Calculator</h1>
-      <form>
-        <label for='chainring'>Chainring</label>
-        <input type='text' id='chainring' placeholder="Enter # of teeth on chainring"/>
-        <label for='cassette'>Cassette teeth</label>
-        <input type='text' id='cassette' placeholder="Enter # of teeth on cassette"/>
-        <label for='wheelsize'>Wheel Size</label>
-        <select id='wheelsize'>
-          <option>26</option>
-          <option>27 1/4</option>
-          <option>650b</option>
-          <option>700c</option>
-          <option>29er</option>
-        </select>
-        <button type='submit' id='gearInch'/>Get Gear Inches</button>
-      </form>
-      <table id='gearInches'>
-        <th>Gear Inches:</th>
-        <tr>
-          <td id='answer'></td>
-        </tr>
-      </table>
-    </div><!-- end wrap -->
+    <div class="row">
+      <div id='wrap' class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
+          <h1>Gear Inch Calculator</h1>
+          <form>
+            <div class="form-group">
+              <label for='chainring'>Chainring</label>
+              <input type='text' id='chainring' class="form-control" placeholder="Enter # of teeth on chainring"/>
+            </div>
+            <div class="form-group">
+              <label for='cassette'>Cassette teeth</label>
+              <input type='text' id='cassette' class="form-control" placeholder="Enter # of teeth on cassette"/>
+            </div>
+            <label for='wheelsize'>Wheel Size</label>
+            <select id='wheelsize' class="form-control">
+              <option>26</option>
+              <option>27 1/4</option>
+              <option>650b</option>
+              <option>700c</option>
+              <option>29er</option>
+            </select>
+            <button type='submit' id='gearInch' class="btn btn-success">Get Gear Inches</button>
+          </form>
+        <table id='gearInches' class="table">
+          <th>Gear Inches:</th>
+          <tr>
+            <td id='answer'></td>
+          </tr>
+        </table>
+      </div><!-- end wrap -->
+    </div>  <!-- end row -->
   <script src='script.js'></script>
   </body>
 </html>
