@@ -44,10 +44,6 @@
   }
 
   function getGears() {
-    // get first input value
-    var chnring = document.getElementsByTagName("input")[0];
-    // get second input value
-    var cogs = document.getElementsByTagName("input")[1];
     // checks to see if the user has input the values necessary to
     // check their gear range
     if (elemMap.chnring.value !== "" &&
