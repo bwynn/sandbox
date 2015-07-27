@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel='stylesheet' href='style.css'/> -->
+    <link rel='stylesheet' href='style.css'/>
   </head>
   <body>
     <div class="row">
       <div id='wrap' class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-xs-12">
-          <h1>Gear Inch Calculator</h1>
+          <div class="page-header">
+            <h1>Gear Inch Calculator</h1>
+          </div>
           <form>
             <div class="form-group">
               <label for='chainring'>Chainring</label>
@@ -30,12 +32,14 @@
             </select>
             <button type='submit' id='gearInch' class="btn btn-success">Get Gear Inches</button>
           </form>
-        <table id='gearInches' class="table">
-          <th>Gear Inches:</th>
-          <tr>
-            <td id='answer'></td>
-          </tr>
-        </table>
+          <div class="well">
+            <table id='gearInches' class="table">
+              <th>Gear Inches:</th>
+              <tr>
+                <td id='answer'></td>
+              </tr>
+            </table>
+          </div>
       </div><!-- end wrap -->
     </div>  <!-- end row -->
   <script src='script.js'></script>
