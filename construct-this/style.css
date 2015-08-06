@@ -1,8 +1,12 @@
 button#gearInch {
+  padding: 1em;
+}
+
+button[id^="gearInch"] {
   display: block;
   margin: 1em auto;
 }
 
-th, td {
+#answer {
   text-align: center;
 }
