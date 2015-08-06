@@ -1,25 +1,21 @@
-//(function() {
-  var model = {
     // grid to be generated should be set at 4x4 upon page load
     // sets index value
-    newIndex: function() {
+    var newIndex = function() {
       return 4;
-    },
+    };
     // if a boolean value has been assigned (assuming that the user has
     // successfully completed the first round), index should be set at 5x5
     // this is in turn, exponential growth, and can therefor be set as a
     // a basic index to start at, which is squared to determine the current
     // grid value.
-    grid: function() {
-      return Math.pow(model.newIndex(), 2);
-    }
-  };
+    var grid = function() {
+      return Math.pow(newIndex(), 2);
+    };
 
-  var view = {
     // generate grid object on page load
-    newgrid: {
-      build: function() {
-        for (var i = 1; i <= model.grid(); i++) {
+
+    var build = function() {
+        for (var i = 1; i <= grid(); i++) {
           // create new div element
           var wrap = document.getElementById("boxWrap");
           var boxed = document.createElement("div");
@@ -28,23 +24,23 @@
           // add class attribute
           boxed.setAttribute("class", "box");
         }
-      },
+      };
       // returns a random number between 1 and the number provided by the
       // grid function, in the default setting, returns between 1 and 16
-      pattern: function() {
+      var pattern = function() {
         // this object should gather it's random selection of grid elements
         // using the fisher-yates shuffle algorithm.
-          var n = Math.floor((Math.random() * model.grid()) + 0);
+          var n = Math.floor((Math.random() * grid()) + 0);
           return n;
-      },
+      };
       // this function determines the squares to assign the
       // active class to as determined by the returned value of the
       // newgrid.pattern() method.
-      patternLogic: function() {
+      var patternLogic = function() {
         // get box
         var boxes = document.querySelectorAll("div.box"),
             // creates active object which is the randomly assigned box
-            active = boxes[view.newgrid.pattern()],
+            active = boxes[pattern()],
             sibling, newSib;
 
         // adds active value to the active box
@@ -65,14 +61,11 @@
           sibling.classList.add("hide");
           newSib.classList.add("hide");
         },2000);
-      }
-    }
-  };
+      };
 
-  var controller = {
     // add event handler that uses a conditional statement to determine
     // if the box clicked has the active class.
-    gameplay: function() {
+    var gameplay = function() {
       var boxes = document.querySelectorAll("div.box");
       // declare an array to store the items clicked on
       var values = [];
@@ -101,15 +94,16 @@
           }
         },false);
       }
-    },
-    init: function() {
-      view.newgrid.build();
-      view.newgrid.patternLogic();
-      controller.gameplay();
-    }
-  }
+    };
+
+    var init = function() {
+      build();
+      patternLogic();
+      gameplay();
+    };
+
   // immediately invoked function wrapping around contents will return all
   // init functions
   // return controller.init();
-  controller.init();
+  init();
 //}());
