@@ -5,10 +5,24 @@ body,
   width: 100%;
   margin: 0;
 }
+
+body {
+  font-size: 16px;
+}
+
+#outerWrap {
+  background: linear-gradient(#f9f9f9, #999);
+}
+
+#boxWrap, #resultsContainer {
+  position: relative;
+  top: 10%;
+}
+
 #boxWrap {
   height: 100%;
-  max-height: 800px;
-  width: 55%;
+  max-height: 500px;
+  max-width: 500px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -16,8 +30,8 @@ body,
 #boxWrap,
 .box {
   box-sizing: border-box;
-  border: 7px solid #444;
-  background-color: #999;
+  border: .5em solid #333;
+  background-color: #5EBF74;
 }
 
 .box {
@@ -31,17 +45,27 @@ body,
 
 .box:hover {
   cursor: pointer;
-  background: rgb(54, 79, 128);
+  background: #30613B;
 }
 
 .active {
-  background-color: rgb(174, 163, 204);
+  background-color: #30613B;
 }
 
 .hide {
-  background-color: #999;
+  background-color: #5EBF74;
 }
 
 .wrong {
   background-color: tomato;
+}
+
+#results {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#results h1,
+#results button[type="submit"] {
+  display: inline-block;
 }
