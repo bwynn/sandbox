@@ -102,8 +102,7 @@
       gameplay();
     };
 
-  // immediately invoked function wrapping around contents will return all
+
   // init functions
-  // return controller.init();
   init();
 //}());
