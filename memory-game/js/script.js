@@ -9,7 +9,8 @@
       box_wrap: $("#boxWrap"),
       new_box: $('<div class="box"/>'),
       box: $("div.box"),
-      check_scores: $("button#checkScores")
+      check_scores: $("button#checkScores"),
+      result_header: $("#results > h1")
     },
     settable_map: {
       cur_index: 4,
@@ -19,6 +20,10 @@
     grid_map: {
       correct_values: [],
       wrong_values: []
+    },
+    content: {
+      winner: "You win!",
+      try_again: "Sorry, try again."
     }
   };
   // ----------------------- END MODULE SCOPE VARIABLES ------------------------
@@ -114,10 +119,10 @@
   // Begin DOM method /evaluateScore/
   var evaluateScore = function() {
     if ( configMap.grid_map.wrong_values.length < 1 && configMap.grid_map.correct_values.length === 3) {
-      console.log("you win!");
+      configMap.jquery_map.result_header.text(configMap.content.winner);
     }
     else {
-      console.log("sorry, try again!");
+      configMap.jquery_map.result_header.text(configMap.content.try_again);
     }
   };
   // End DOM method /evaluateScore/
