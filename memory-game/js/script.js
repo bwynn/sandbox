@@ -8,7 +8,8 @@
     jquery_map: {
       box_wrap: $("#boxWrap"),
       new_box: $('<div class="box"/>'),
-      box: $("div.box")
+      box: $("div.box"),
+      check_scores: $("button#checkScores")
     },
     settable_map: {
       cur_index: 4,
@@ -16,7 +17,8 @@
       hint_inactive: false
     },
     grid_map: {
-      values: []
+      correct_values: [],
+      wrong_values: []
     }
   };
   // ----------------------- END MODULE SCOPE VARIABLES ------------------------
@@ -67,7 +69,7 @@
     var boxes = $("div.box"),
         pat = pattern(),
         // creates active object which is the randomly assigned box
-        active, sibling1, sibling2, newIndex;
+        sibling1, sibling2, newIndex;
 
     // changes index if the pattern variable exceeds 14
     if (pat >= 14) {
@@ -94,67 +96,62 @@
   // End DOM method /createPattern/
 
   // Begin DOM method /patternLogic/
-  var patternLogic = function( obj ) {
+  var setValues = function( obj ) {
 
     if ( obj.hasClass("active") === true ) {
       // remove the hide class from the obj.classList
       obj.removeClass("hide");
       // push value into grid_map.values array
-      configMap.grid_map.values.push(obj);
-      console.log(configMap.grid_map.values);
+      configMap.grid_map.correct_values.push(obj);
     }
     else {
-      console.log("wrong");
+      // push clicked item into wrong_values array
+      configMap.grid_map.wrong_values.push(obj);
     }
-    // conditional to validate selected boxes attributes
-    // if the clicked div item has the active class
-    //if ( obj === "div.box.active.hide" ) {
-      //return true;
-      // this shows the user the same color selection that they had
-      // been originally shown
-      //obj.removeClass(".hide");
-      // add the clicked value to the values array
-      //values.push( $(this) );
-      // invoke the winner function
-      //if (values.length === 3) {
-        //alert("you win!");
-        //location.reload();
-      //}
-    //} //else {
-      // visual indication that the user got the wrong answer
-      //$(this).addClass("wrong");
-      // right now alert is present, but this should be
-      // a pop up modal that prevents the user from further interaction
-      //alert("Try Again!");
-      //location.reload();
-    //}
   };
   // End DOM method /patternLogic/
+
+  // Begin DOM method /evaluateScore/
+  var evaluateScore = function() {
+    if ( configMap.grid_map.wrong_values.length < 1 && configMap.grid_map.correct_values.length === 3) {
+      console.log("you win!");
+    }
+    else {
+      console.log("sorry, try again!");
+    }
+  };
+  // End DOM method /evaluateScore/
   //
   // ----------------------- END DOM METHODS -----------------------------------
 
   // ----------------------- EVENT HANDLERS ------------------------------------
-  // ----------------------- END EVENT HANDLERS --------------------------------
-
-  // ----------------------- PUBLIC METHODS ------------------------------------
-  // ----------------------- END PUBLIC METHODS --------------------------------
-
-
   // add event handler that uses a conditional statement to determine
   // if the box clicked has the active class.
   var gameplay = function() {
     var boxes = $("div.box");
     boxes.on("click", function() {
-      patternLogic( $(this) );
+      setValues( $(this) );
     });
   };
 
+  // submit button event handler
+  var scoreCheck = function() {
+    configMap.jquery_map.check_scores.on("click", function() {
+      evaluateScore();
+    });
+  };
+  // ----------------------- END EVENT HANDLERS --------------------------------
 
+  // ----------------------- PUBLIC METHODS ------------------------------------
   var initModule = function() {
     buildBox();
     createPattern();
     gameplay();
+    scoreCheck();
   };
+  // ----------------------- END PUBLIC METHODS --------------------------------
+
+
   initModule();
   //return { initModule : initModule };
 //}());
