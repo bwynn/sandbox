@@ -7,7 +7,8 @@
   var configMap = {
     jquery_map: {
       box_wrap: $("#boxWrap"),
-      new_box: $('<div class="box"/>')
+      new_box: $('<div class="box"/>'),
+      box: $(".box")
     },
     settable_map: {
       cur_index: 4,
@@ -53,6 +54,38 @@
     // using the fisher-yates shuffle algorithm.
         return Math.floor((Math.random() * buildGrid( configMap.settable_map.cur_index )) + 0);
   };
+
+  // this function determines the squares to assign the
+  // active class to as determined by the returned value of the
+  // newgrid.pattern() method.
+  var patternLogic = function() {
+    // get box
+    var boxes = $("div.box"),
+        // creates active object which is the randomly assigned box
+        active = boxes[pattern()],
+        sibling1, sibling2;
+
+    // adds active value to the active box
+    if (active >= boxes[15]) {
+      sibling1 = active.previousSibling;
+      sibling2 = sibling1.previousSibling;
+    }
+    else {
+      sibling1 = active.nextSibling;
+      sibling2 = sibling1.nextSibling;
+    }
+
+    active.classList.add("active");
+    sibling1.classList.add("active");
+    sibling2.classList.add("active");
+    // sets the timeout to hide the active box
+    setTimeout(function() {
+      active.classList.add("hide");
+      sibling1.classList.add("hide");
+      sibling2.classList.add("hide");
+    },2000);
+
+  };
   // ----------------------- END DOM METHODS -----------------------------------
 
   // ----------------------- EVENT HANDLERS ------------------------------------
@@ -61,36 +94,6 @@
   // ----------------------- PUBLIC METHODS ------------------------------------
   // ----------------------- END PUBLIC METHODS --------------------------------
 
-
-    // this function determines the squares to assign the
-    // active class to as determined by the returned value of the
-    // newgrid.pattern() method.
-    var patternLogic = function() {
-      // get box
-      var boxes = $("div.box"),
-          // creates active object which is the randomly assigned box
-          active = boxes[pattern()],
-          sibling, newSib;
-
-      // adds active value to the active box
-      if (active == $("div.box")[15]) {
-        sibling = active.previousSibling;
-        newSib = sibling.previousSibling;
-      } else {
-        sibling = active.nextSibling;
-        newSib = sibling.nextSibling;
-      }
-
-      active.addClass("active");
-      sibling.addClass("active");
-      newSib.addClass("active");
-      // sets the timeout to hide the active box
-      setTimeout(function() {
-        active.classList.add("hide");
-        sibling.classList.add("hide");
-        newSib.classList.add("hide");
-      },2000);
-    };
 
   // add event handler that uses a conditional statement to determine
   // if the box clicked has the active class.
@@ -125,7 +128,7 @@
 
   var initModule = function() {
     buildBox();
-    //patternLogic();
+    patternLogic();
     //gameplay();
   };
   initModule();
