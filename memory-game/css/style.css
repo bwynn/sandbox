@@ -7,6 +7,7 @@ body,
 }
 
 body {
+  font-family: 'Oxygen', sans-serif;
   font-size: 16px;
 }
 
@@ -65,7 +66,31 @@ body {
   margin: 0 auto;
 }
 
-#results h1,
-#results button[type="submit"] {
-  display: inline-block;
+#results button[type='submit'] {
+  margin: 2em auto;
+  display: block;
+  font-size: 1.5em;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #333;
+  -webkit-transition: .4s ease-in-out;
+  -moz-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+}
+
+#results button[type='submit']:focus,
+#results button[type='submit']:active {
+  outline: none;
+}
+
+#results button[type='submit']:hover {
+  background-color: #333;
+  color: #f9f9f9;
+  border-color: #f9f9f9;
+}
+
+#results h1 {
+  display: none;
+  text-align: center;
 }

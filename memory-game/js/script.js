@@ -142,7 +142,7 @@
   // submit button event handler
   var scoreCheck = function() {
     configMap.jquery_map.check_scores.on("click", function() {
-      evaluateScore();
+      configMap.jquery_map.result_header.show(500, evaluateScore);
     });
   };
   // ----------------------- END EVENT HANDLERS --------------------------------
