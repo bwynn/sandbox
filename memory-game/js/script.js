@@ -1,5 +1,5 @@
 
-//mg.shell = (function() {
+//(function() {
   // grid to be generated should be set at 4x4 upon page load
   // sets index value
 
@@ -10,12 +10,11 @@
       new_box: $('<div class="box"/>'),
       box: $("div.box"),
       check_scores: $("button#checkScores"),
-      result_header: $("#results > h1")
+      result_header: $("#results > h1"),
+      play_again: $("<button type='submit' id='playAgain'>Play Again?</button>")
     },
     settable_map: {
-      cur_index: 4,
-      hint_active: true,
-      hint_inactive: false
+      cur_index: 4
     },
     grid_map: {
       correct_values: [],
@@ -127,6 +126,17 @@
   };
   // End DOM method /evaluateScore/
   //
+
+  // Begin DOM method /showScore/
+  // Purpose: The showScore method first invokes the evaluateScore method, then
+  // takes the newly assigned text content and displays the results
+  // using the slideDown jquery method.
+  var showScore = function() {
+    evaluateScore();
+    configMap.jquery_map.result_header.slideDown(500, 'linear');
+    configMap.jquery_map.result_header.append(configMap.jquery_map.play_again);
+  };
+  // End DOM method /showScore/
   // ----------------------- END DOM METHODS -----------------------------------
 
   // ----------------------- EVENT HANDLERS ------------------------------------
@@ -142,7 +152,14 @@
   // submit button event handler
   var scoreCheck = function() {
     configMap.jquery_map.check_scores.on("click", function() {
-      configMap.jquery_map.result_header.show(500, evaluateScore);
+      showScore();
+      reloadPage();
+    });
+  };
+
+  var reloadPage = function() {
+    $("#playAgain").on("click", function() {
+      location.reload();
     });
   };
   // ----------------------- END EVENT HANDLERS --------------------------------
@@ -158,5 +175,5 @@
 
 
   initModule();
-  //return { initModule : initModule };
+
 //}());
