@@ -1,5 +1,5 @@
 
-//(function() {
+(function() {
   // grid to be generated should be set at 4x4 upon page load
   // sets index value
 
@@ -174,6 +174,6 @@
   // ----------------------- END PUBLIC METHODS --------------------------------
 
 
-  initModule();
+  return initModule();
 
-//}());
+}());
