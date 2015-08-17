@@ -13,12 +13,12 @@ body {
 }
 
 #outerWrap {
-  background: #222;
+  background: #333;
 }
 
 #outerWrap h1 {
   margin: 0;
-  background-color: #444;
+  background-color: #333;
   color: #fff;
   text-align: center;
   padding: 1em;
@@ -77,6 +77,9 @@ body {
 
 section#info {
   height: 500px;
+  background-color: #222;
+  border-bottom: 2px solid #555;
+  box-sizing: border-box;
 }
 
 #resultsContainer {
@@ -90,9 +93,6 @@ section#info {
 }
 
 .resultsMsg {
-  -webkit-transition: .3s background ease-out;
-  -moz-transition: .3s background ease-out;
-  transition: .3s background ease-out;
   align-items: center;
 }
 
