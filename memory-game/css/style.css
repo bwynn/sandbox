@@ -13,13 +13,16 @@ body {
 }
 
 #outerWrap {
-  background: linear-gradient(#f9f9f9, #999);
+  background: #222;
 }
 
 #outerWrap h1 {
   margin: 0;
   background-color: #444;
   color: #fff;
+  text-align: center;
+  padding: 1em;
+  border-bottom: 2px solid #555;
 }
 
 #boxWrap, #resultsContainer {
@@ -28,10 +31,13 @@ body {
 
 #boxWrap {
   height: 100%;
-  max-height: 500px;
-  max-width: 500px;
-  margin: 0 auto;
+  height: 500px;
+  width: 500px;
+  margin: 0;
   overflow: hidden;
+  float: left;
+  position: relative;
+  z-index: 3;
 }
 
 #boxWrap,
@@ -67,8 +73,45 @@ body {
   background-color: tomato;
 }
 
+/* Result section */
 
-#results button[type='submit'] {
+section#info {
+  height: 500px;
+}
+
+#resultsContainer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+.resultsMsg {
+  -webkit-transition: .3s background ease-out;
+  -moz-transition: .3s background ease-out;
+  transition: .3s background ease-out;
+  align-items: center;
+}
+
+.result-icon {
+  display: block;
+  height: 35px;
+  width: 35px;
+  margin: 0 auto;
+}
+
+.winner {
+  background: url("../img/checkmark2.svg") no-repeat;
+}
+
+.loser {
+  background: url("../img/cancel-circle.svg") no-repeat;
+}
+
+#resultsContainer button[type='submit'] {
   margin: 2em auto;
   display: block;
   font-size: 1.5rem;
@@ -81,18 +124,19 @@ body {
   transition: .4s ease-in-out;
 }
 
-#results button[type='submit']:focus,
-#results button[type='submit']:active {
+#resultsContainer button[type='submit']:focus,
+#resultsContainer button[type='submit']:active {
   outline: none;
 }
 
-#results button[type='submit']:hover {
+#resultsContainer button[type='submit']:hover {
   background-color: #333;
   color: #f9f9f9;
   border-color: #f9f9f9;
 }
 
-#results h1 {
+.resultsMsg p {
+  font-size: 1.4em;
   text-align: center;
-  display: none;
+  color: white;
 }
