@@ -4,6 +4,7 @@ body,
   height: 100%;
   width: 100%;
   margin: 0;
+  overflow: scroll;
 }
 
 body {
@@ -15,9 +16,14 @@ body {
   background: linear-gradient(#f9f9f9, #999);
 }
 
+#outerWrap h1 {
+  margin: 0;
+  background-color: #444;
+  color: #fff;
+}
+
 #boxWrap, #resultsContainer {
   position: relative;
-  top: 10%;
 }
 
 #boxWrap {
@@ -61,10 +67,6 @@ body {
   background-color: tomato;
 }
 
-#results {
-  width: 50%;
-  margin: 0 auto;
-}
 
 #results button[type='submit'] {
   margin: 2em auto;

@@ -10,7 +10,7 @@
       new_box: $('<div class="box"/>'),
       box: $("div.box"),
       check_scores: $("button#checkScores"),
-      result_header: $("#results > h1"),
+      result_header: $("#results > p"),
       play_again: $("<button type='submit' id='playAgain'>Play Again?</button>")
     },
     settable_map: {
@@ -110,6 +110,7 @@
     }
     else {
       // push clicked item into wrong_values array
+      obj.addClass("wrong");
       configMap.grid_map.wrong_values.push(obj);
     }
   };
@@ -134,7 +135,7 @@
   var showScore = function() {
     evaluateScore();
     configMap.jquery_map.result_header.slideDown(500, 'linear');
-    configMap.jquery_map.result_header.append(configMap.jquery_map.play_again);
+    configMap.jquery_map.result_header.after(configMap.jquery_map.play_again);
   };
   // End DOM method /showScore/
   // ----------------------- END DOM METHODS -----------------------------------
