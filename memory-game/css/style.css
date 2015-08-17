@@ -93,11 +93,11 @@ section#info {
 }
 
 .resultsMsg {
+  -webkit-align-item: center;
   align-items: center;
 }
 
-.result-icon {
-  display: block;
+figure.result-icon {
   height: 35px;
   width: 35px;
   margin: 0 auto;
