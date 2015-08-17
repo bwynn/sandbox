@@ -1,0 +1,87 @@
+#clip-path {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Header */
+#clip-path header {
+  background-color: #333;
+}
+
+#clip-path header h1 {
+  padding: .2em;
+  margin: 0;
+  color: white;
+}
+
+/* Main Navigation */
+#clip-path #display-nav > nav {
+  position: relative;
+  top: 200px;
+  width: 350px;
+  margin: 0 auto;
+}
+
+#clip-path #display-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 350px;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+#clip-path #display-nav ul:hover > li.diamond {
+  opacity: .7;
+}
+
+#clip-path #display-nav ul:hover > li.diamond:hover {
+  opacity: 1;
+}
+
+#clip-path #display-nav ul > li > a {
+  color: white;
+}
+
+#clip-path .diamond {
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: relative;
+  height: 150px;
+  width: 150px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background-color: red;
+  cursor: pointer;
+  background-position: center;
+  background-size: contain;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+#clip-path .diamond.cumulus {
+  left: 100px;
+  background: url("../img/swelling-cumulus.jpg") no-repeat;
+}
+
+#clip-path .diamond.stratus {
+  left: 20px;
+  top: -70px;
+  background: url("../img/stratus.jpg") no-repeat;
+}
+
+#clip-path .diamond.cirrocumulus {
+  left: 180px;
+  top: -220px;
+  background: url("../img/cirrocumulus.jpg") no-repeat;
+}
+
+#clip-path .diamond.stratocumulus {
+  top: -290px;
+  left: 100px;
+  background: url("../img/stratocumulus.jpg") no-repeat;
+}
