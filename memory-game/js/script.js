@@ -10,7 +10,8 @@
       new_box: $('<div class="box"/>'),
       box: $("div.box"),
       check_scores: $("button#checkScores"),
-      result_header: $("#results > h1"),
+      result_header: $(".resultsMsg > p"),
+      results: $(".resultsMsg"),
       play_again: $("<button type='submit' id='playAgain'>Play Again?</button>")
     },
     settable_map: {
@@ -87,6 +88,8 @@
     newIndex.classList.add("active");
     sibling1.classList.add("active");
     sibling2.classList.add("active");
+
+
     // sets the timeout to hide the active box
     setTimeout(function() {
       newIndex.classList.add("hide");
@@ -110,6 +113,7 @@
     }
     else {
       // push clicked item into wrong_values array
+      obj.addClass("wrong");
       configMap.grid_map.wrong_values.push(obj);
     }
   };
@@ -118,10 +122,14 @@
   // Begin DOM method /evaluateScore/
   var evaluateScore = function() {
     if ( configMap.grid_map.wrong_values.length < 1 && configMap.grid_map.correct_values.length === 3) {
-      configMap.jquery_map.result_header.text(configMap.content.winner);
+      var resultHeader = configMap.jquery_map.result_header;
+      resultHeader.text(configMap.content.winner);
+      resultHeader.before('<figure class="result-icon winner"></figure>');
     }
     else {
-      configMap.jquery_map.result_header.text(configMap.content.try_again);
+      var resultHeader = configMap.jquery_map.result_header
+      resultHeader.text(configMap.content.try_again);
+      resultHeader.before('<figure class="result-icon loser"></figure>');
     }
   };
   // End DOM method /evaluateScore/
@@ -133,8 +141,8 @@
   // using the slideDown jquery method.
   var showScore = function() {
     evaluateScore();
-    configMap.jquery_map.result_header.slideDown(500, 'linear');
-    configMap.jquery_map.result_header.append(configMap.jquery_map.play_again);
+    configMap.jquery_map.results.show(500);
+    configMap.jquery_map.results.after(configMap.jquery_map.play_again);
   };
   // End DOM method /showScore/
   // ----------------------- END DOM METHODS -----------------------------------
@@ -144,22 +152,40 @@
   // if the box clicked has the active class.
   var gameplay = function() {
     var boxes = $("div.box");
-    boxes.on("click", function() {
-      setValues( $(this) );
-    });
+      boxes.on("click", function() {
+        setValues( $(this) );
+      });
   };
 
   // submit button event handler
   var scoreCheck = function() {
     configMap.jquery_map.check_scores.on("click", function() {
-      showScore();
-      reloadPage();
+      if ($("button#playAgain").css("display") === "block") {
+        return;
+      }
+      else {
+        showScore();
+        reloadPage();
+      }
     });
   };
 
   var reloadPage = function() {
     $("#playAgain").on("click", function() {
       location.reload();
+    });
+  };
+
+  var hideBtn = function() {
+    var boxes = $("div.box");
+
+    boxes.on("mouseover", function() {
+      for (var i = 0; i < boxes.length; i++) {
+        if (this.classList.contains("active") && this.classList.contains("hide")) {
+          console.log("activated pointer");
+         }
+         console.log('unactivated pointer');
+      }
     });
   };
   // ----------------------- END EVENT HANDLERS --------------------------------
