@@ -1,6 +1,8 @@
 #clip-path {
   margin: 0;
   font-size: 16px;
+  font-family: helvetica, sans-serif;
+  background-color: #555;
 }
 
 /* Header */
@@ -15,11 +17,16 @@
 }
 
 /* Main Navigation */
-#clip-path #display-nav > nav {
+#clip-path #display-nav {
   position: relative;
   top: 200px;
   width: 350px;
   margin: 0 auto;
+  transition: .5s ease-in-out;
+}
+
+#clip-path #display-nav.selected {
+  top: 20px;
 }
 
 #clip-path #display-nav ul {
@@ -32,7 +39,7 @@
 }
 
 #clip-path #display-nav ul:hover > li.diamond {
-  opacity: .7;
+  opacity: .5;
 }
 
 #clip-path #display-nav ul:hover > li.diamond:hover {
@@ -40,12 +47,15 @@
 }
 
 #clip-path #display-nav ul > li > a {
+  text-decoration: none;
   color: white;
+  font-size: 1.1em;
 }
 
 #clip-path .diamond {
   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   position: relative;
   height: 150px;
   width: 150px;
@@ -66,6 +76,7 @@
 #clip-path .diamond.cumulus {
   left: 100px;
   background: url("../img/swelling-cumulus.jpg") no-repeat;
+  background-position: bottom;
 }
 
 #clip-path .diamond.stratus {
@@ -84,4 +95,65 @@
   top: -290px;
   left: 100px;
   background: url("../img/stratocumulus.jpg") no-repeat;
+}
+
+/* Content section */
+
+#clip-path #content {
+  width: 60%;
+  margin: 0 auto;
+  height: auto;
+  border-top: 2px solid #999;
+  overflow: hidden;
+  display: none;
+}
+
+#clip-path #content figure.img {
+  height: 250px;
+  width: 250px;
+  float: left;
+  background: url("../img/swelling-cumulus.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#clip-path #content h2,
+#clip-path #content p {
+  color: #E3E2DD;
+}
+
+#clip-path #content table,
+#clip-path #content tr,
+#clip-path #content th,
+#clip-path #content td {
+  border: 1px solid #333;
+}
+
+#clip-path #content tr {
+  background-color: #888;
+}
+
+#clip-path #content tr:nth-child(odd) {
+  background-color: #E3E2DD;
+}
+
+#clip-path #content th,
+#clip-path #content td {
+  padding: .6em;
+}
+
+@media only screen and (max-width: 1200px) {
+  #clip-path #content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  #clip-path #content figure.img {
+    height: 300px;
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
 }
