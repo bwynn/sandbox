@@ -85,15 +85,10 @@ section#info {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flow: column wrap;
+  -webkit-flex-direction: column;
   flex-flow: column wrap;
   -webkit-align-content: center;
   align-content: center;
-}
-
-.resultsMsg {
-  -webkit-align-item: center;
-  align-items: center;
 }
 
 figure.result-icon {
