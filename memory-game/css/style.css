@@ -30,7 +30,6 @@ body {
 }
 
 #boxWrap {
-  height: 100%;
   height: 500px;
   width: 500px;
   margin: 0;
@@ -103,6 +102,11 @@ figure.result-icon {
   margin: 0 auto;
 }
 
+.resultsMsg > p {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
 .winner {
   background: url("../img/checkmark2.svg") no-repeat;
 }
@@ -139,4 +143,13 @@ figure.result-icon {
   font-size: 1.4em;
   text-align: center;
   color: white;
+}
+
+@media only screen and (max-width: 786px) {
+  #boxWrap {
+    height: 320px;
+    width: 320px;
+    float: none;
+    margin: 0 auto;
+  }
 }
