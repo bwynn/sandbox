@@ -30,7 +30,6 @@ body {
 }
 
 #boxWrap {
-  height: 100%;
   height: 500px;
   width: 500px;
   margin: 0;
@@ -86,21 +85,21 @@ section#info {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flow: column wrap;
+  -webkit-flex-direction: column;
   flex-flow: column wrap;
   -webkit-align-content: center;
   align-content: center;
-}
-
-.resultsMsg {
-  -webkit-align-item: center;
-  align-items: center;
 }
 
 figure.result-icon {
   height: 35px;
   width: 35px;
   margin: 0 auto;
+}
+
+.resultsMsg > p {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
 .winner {
@@ -139,4 +138,13 @@ figure.result-icon {
   font-size: 1.4em;
   text-align: center;
   color: white;
+}
+
+@media only screen and (max-width: 786px) {
+  #boxWrap {
+    height: 320px;
+    width: 320px;
+    float: none;
+    margin: 0 auto;
+  }
 }

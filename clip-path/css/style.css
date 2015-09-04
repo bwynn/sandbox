@@ -2,7 +2,7 @@
   margin: 0;
   font-size: 16px;
   font-family: helvetica, sans-serif;
-  background-color: #555;
+  background-color: #222;
 }
 
 /* Header */
@@ -27,6 +27,12 @@
 
 #clip-path #display-nav.selected {
   top: 20px;
+}
+
+#clip-path #display-nav.selected li.diamond,
+#clip-path #display-nav.selected li.diamond a {
+  opacity: .5;
+  cursor: default;
 }
 
 #clip-path #display-nav ul {
@@ -54,7 +60,6 @@
 
 #clip-path .diamond {
   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   clip: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
   position: relative;
   height: 150px;
@@ -100,7 +105,7 @@
 /* Content section */
 
 #clip-path #content {
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
   height: auto;
   border-top: 2px solid #999;
@@ -155,5 +160,38 @@
     width: 100%;
     float: none;
     margin: 0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #clip-path #display-nav {
+    top: 50px;
+    width: 310px;
+  }
+
+  #clip-path .diamond.cumulus {
+    left: 80px;
+  }
+
+  #clip-path .diamond.stratus {
+    left: 0px;
+    top: -70px;
+    background: url("../img/stratus.jpg") no-repeat;
+  }
+
+  #clip-path .diamond.cirrocumulus {
+    left: 160px;
+    top: -220px;
+    background: url("../img/cirrocumulus.jpg") no-repeat;
+  }
+
+  #clip-path .diamond.stratocumulus {
+    top: -290px;
+    left: 80px;
+    background: url("../img/stratocumulus.jpg") no-repeat;
+  }
+
+  #clip-path #content th, #clip-path #content td {
+    padding: 0;
   }
 }

@@ -7,6 +7,14 @@ button[id^="gearInch"] {
   margin: 1em auto;
 }
 
+th,
+td {
+  font-size: 1.4em;
+  border-top: none;
+}
+
+th,
+td,
 #answer {
   text-align: center;
 }

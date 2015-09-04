@@ -123,11 +123,13 @@
   var evaluateScore = function() {
     if ( configMap.grid_map.wrong_values.length < 1 && configMap.grid_map.correct_values.length === 3) {
       var resultHeader = configMap.jquery_map.result_header;
+
       resultHeader.text(configMap.content.winner);
       resultHeader.before('<figure class="result-icon winner"></figure>');
     }
     else {
       var resultHeader = configMap.jquery_map.result_header
+
       resultHeader.text(configMap.content.try_again);
       resultHeader.before('<figure class="result-icon loser"></figure>');
     }
@@ -161,7 +163,7 @@
   var scoreCheck = function() {
     configMap.jquery_map.check_scores.on("click", function() {
       if ($("button#playAgain").css("display") === "block") {
-        return;
+        return console.log("there was an issue");
       }
       else {
         showScore();
