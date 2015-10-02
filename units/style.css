@@ -1,0 +1,33 @@
+html, body {
+  height: 100%;
+}
+
+body, form {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+}
+
+form {
+  height: inherit;
+}
+
+input[id="user-input"],
+div#result {
+  height: 2em;
+  display: inline-block;
+  width: 8em;
+  border: none;
+}
+
+input[id="user-input"]:focus {
+  outline: none;
+}
+
+div#result {
+  position: relative;
+  top: .75em;
+}
