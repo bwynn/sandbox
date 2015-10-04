@@ -1,53 +1,71 @@
 var userInput = document.getElementById("user-input");
 var outputResult = document.getElementById("result");
 
-var Session = function() {};
+// Create a new constructor object. Takes input value directly from
+// text input element, and parses the value into a number, and returns a
+// calculation based on the users settings
+function Unit( input ) {
+  this.input = input;
+  this.default = function() {
+    return parseInt( this.input * 1 );
+  };
+  this.toInch = function() {
+    return parseInt( this.input * 0.0393701 );
+  };
+  this.toMM = function() {
+    return parseInt( this.input * 25.4 );
+  };
+  this.toCM = function() {
+    return parseInt( this.input * 2.54 );
+  };
+  this.toMeter = function() {
+    return parseInt( this.input * 0.254 );
+  };
+}
 
-Session.prototype.valid = function( val ) {
-  // turn into a number
-  var results = parseInt(val);
+function calc( unit1, unit2 ) {
+  var newValue = new Unit( userInput.value ), // current input value
+      fullNum; // declare fullNum variable for later use.
 
-  // if value is not a number return error msg
-  if ( typeof results !== "number" ) {
-    console.log("try again")
-  } else if ( typeof results === "number" ){
-    return results;
+  // if english is selected
+  if ( unit1.value === "Inch" ) {
+    // and english is output selection
+    if ( unit2.value === "Inch" ) {
+      return newValue.default();
+    }
+    // and metric is output selection
+    if ( unit2.value === "Millimeters" ) {
+			fullNum = newValue.toMM(); // return calculation
+      return fullNum.toFixed(3);
+    }
+    else if ( unit2.value === "Centimeters" ) {
+      fullNum = newValue.toCM();
+      return fullNum.toFixed(3);
+    }
+    else if ( unit2.value === "Meters" ) {
+      fullNum = newValue.toMeters();
+      return fullNum.toFixed(3);
+    }
+  }
+
+  // if metric is selected
+  if ( unit1.value === "Millimeters" ) {
+    // and metric is output selection
+    if ( unit2.value === "Inch" ) {
+      fullNum = newValue.toInch(); // return calculation
+      return fullNum.toFixed(3);
+    }
+    // and english is output selection
+    if ( unit2.value === "Millimeters" ) {
+      return newValue.default();// return calculation
+    }
   }
 }
 
-var session = new Session();
 
+// input - output event handling
 userInput.addEventListener("keyup", function() {
   var select = document.getElementById("input-value");
   var output = document.getElementById("output-value");
   outputResult.innerHTML = calc( select, output );
 });
-
-function calc( unit1, unit2 ) {
-  var newValue = userInput.value; // current input value
-  // if english is selected
-  if ( unit1.value === "English Standard" ) {
-    // and english is output selection
-    if ( unit2.value === "English Standard" ) {
-      return session.valid( newValue ) * 1 + " inches"; // return calculation
-    }
-    // and metric is output selection
-    if ( unit2.value === "Metric" ) {
-      var fullNum = session.valid( newValue ) * 25.4; // return calculation
-      return fullNum.toFixed(3) + "mm";
-    }
-  }
-
-  // if metric is selected
-  if ( unit1.value === "Metric" ) {
-    // and metric is output selection
-    if ( unit2.value === "English Standard" ) {
-      var fullNum = session.valid( newValue ) * 0.0393701; // return calculation
-      return fullNum.toFixed(3) + " inches";
-    }
-    // and english is output selection
-    if ( unit2.value === "Metric" ) {
-      return session.valid( newValue ) * 1 + "mm";// return calculation
-    }
-  }
-}
