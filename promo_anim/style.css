@@ -135,14 +135,25 @@ h3 {
 }
 
 #promo-wrap .box:hover .center-promo {
+  -webkit-animation: swingdown 1.5s;
   animation: swingdown 1.5s;
+  -webkit-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-timing-function: linear;
   animation-timing-function: linear;
 }
 
 #promo-wrap .center-promo > p {
   padding-top: 1.2em;
   margin: 0;
+}
+
+@-webkit-keyframes swingdown {
+  0% { top: -50%; }
+  40% { top: 40%; left: 24%; }
+  60% { top: 60%; left: 0%; }
+  80% { top: 40%; left: -24%; }
+  100% { top: 30%; left: 0%; }
 }
 
 @keyframes swingdown {
