@@ -11,23 +11,26 @@ body {
   font-size: 15px;
 }
 
-form {
-  height: inherit;
+/* ========================== CONTENT ELEMENTS ============================== */
+#calc-wrap {
+  max-width: 414px;
+  width: 100%;
+  max-height: 736px;
+  min-height: 480px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #233;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
 
-input[id="user-input"],
-div#result {
-  height: 2em;
-  display: inline-block;
-  width: 8em;
-  border: none;
+#calc-wrap section.calc-screen {
+  width: inherit;
+  height: 15%;
 }
 
-input[id="user-input"]:focus {
-  outline: none;
-}
-
-div#result {
-  position: relative;
-  top: .75em;
+#calc-wrap section.calc-body {
+  height: 85%;
 }
