@@ -43,6 +43,7 @@ h3 {
 
 #promo-wrap .box {
   height: 250px;
+  min-width: 175px;
   width: 20%;
   margin: 1em;
   float: left;
@@ -92,7 +93,7 @@ h3 {
   z-index: -1;
 }
 
-#promo-wrap .box:hover .overlay {
+#promo-wrap .css .box:hover .overlay {
   opacity: .4;
 }
 
@@ -116,7 +117,7 @@ h3 {
   text-shadow: 2px 2px 5px green;
 }
 
-#promo-wrap .box:hover .btm-left-promo {
+#promo-wrap .css .box:hover .btm-left-promo {
   left: -35%;
   -webkit-transform: rotate(40deg);
   transform: rotate(40deg);
@@ -136,7 +137,7 @@ h3 {
   margin: 0 auto;
 }
 
-#promo-wrap .box:hover .center-promo {
+#promo-wrap .css .box:hover .center-promo {
   -webkit-animation: swingdown 1.5s;
   animation: swingdown 1.5s;
   -webkit-timing-function: ease-in;
@@ -210,9 +211,9 @@ h3 {
   top: -18em;
   height: 5em;
   width: 5em;
-  background: -webkit-radial-gradient(99% 95%, goldenrod, black);
-  background: -moz-radial-gradient(99% 95%, goldenrod, black);
-  background: radial-gradient(99% 95%, goldenrod, black);
+  background: -webkit-radial-gradient(99% 95%, deepskyblue, black);
+  background: -moz-radial-gradient(99% 95%, deepskyblue, black);
+  background: radial-gradient(99% 95%, deepskyblue, black);
   color: #fafafa;
   text-shadow: 1px 1px 2px #333;
   margin: 0 auto;
