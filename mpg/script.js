@@ -7,14 +7,15 @@ function timeStamp() {
 
 
 // create a user constructor to build
-var User = function() {
+var User = function( name ) {
+  this.name = name;
   // user dates history
-  this.dates = [];
+  this.dateHistory = [];
 
   // user mpg history
-  this.mpg = [];
+  this.mpgHistory = [];
   // dateHistory is the get function to retrieve localStorage values for dates prop
-  this.dateHistory = function() {
+  this.getDateHistory = function() {
     // declare a variable to parse out the local storage properties
     var data = JSON.parse( localStorage.dates );
     // return data object
@@ -22,7 +23,7 @@ var User = function() {
   };
 
   // mpgHistory is the get function to retrieve localStorage values for mpg prop
-  this.mpgHistory = function() {
+  this.getMpgHistory = function() {
     // declare a variable to parse out the local storage properties
     var data = JSON.parse( localStorage.mpg );
     // return data object
@@ -30,6 +31,7 @@ var User = function() {
   };
 };
 
+var user = new User();
 
 
 var Car = function( name ) {
@@ -45,6 +47,8 @@ var Car = function( name ) {
   };
 };
 
+var car = new Car();
+
 // callback function that processes the input values as provided by user
 // into local storage
 // needs to be invoked for each instance of local storage assignment, eg. mpg and date
@@ -55,13 +59,54 @@ var Car = function( name ) {
 function setLocalStorage( arr, prop, val ) {
   // pushing value to outside of functional scope will allow for adding new entries into localStorage string
   arr.push( val );
-  // push the values into the local storage values
+  // push the values into the local storage values as JSON data
   localStorage[prop] = JSON.stringify( arr );
 }
 
+// This function processes the input value passed in by the user
 function getVal( input ) {
   var val = input.value;
-  var toNum = parseInt( val );
 
-  return toNum;
+  if ( typeof val === "string" ) {
+    var toNum = parseInt( val );
+    // check value of toNum to make sure it's a valid value
+    if ( isNaN( toNum ) ) {
+      // log an error for the time being
+      console.log("something went wrong");
+    }
+    else {
+      // return number
+      return toNum;
+    }
+  }
 }
+
+function processValues() {
+  var miles = document.getElementById("miles");
+  var gallons = document.getElementById("gallons");
+  var mi = getVal( miles ); // get mileage input value
+  var g = getVal( gallons ); // get gallons input value
+  car.getMpg( mi, g );
+  console.log( car.mpg );
+  return car.mpg;
+}
+
+function submitEvent() {
+  var submit = document.getElementById("submit");
+
+  submit.addEventListener("click", function(e) {
+    var car = document.getElementById("car");
+    var carName = car.value;
+    var resultCont = document.getElementById("current-result");
+    var p = document.createElement("p");
+
+    e.preventDefault();
+    processValues();
+
+  }, false );
+}
+
+
+var init = (function() {
+  submitEvent();
+}());
