@@ -1,32 +1,26 @@
-// get gallons filled input
-
-// get miles used input
-
-// submit event
-
-
 // LOCAL STORAGE HANDLING
-var date = new Date();
-var today = date.toDateString();
+function timeStamp() {
+  var date = new Date();
+  var today = date.toDateString();
+  return { date: today };
+}
 
-// iterate through the values to assign/ appropriate into tables
-/*for (var i = 0; i < storedDates.length; i++) {
-  console.log( storedDates[i] );
-}*/
 
 // create a user constructor to build
 var User = function() {
   // user dates history
   this.dates = [];
+
   // user mpg history
   this.mpg = [];
-  // dateHistory is the get function to retrieve localStorage values for dates prop 
+  // dateHistory is the get function to retrieve localStorage values for dates prop
   this.dateHistory = function() {
     // declare a variable to parse out the local storage properties
     var data = JSON.parse( localStorage.dates );
     // return data object
     return { data : data };
   };
+
   // mpgHistory is the get function to retrieve localStorage values for mpg prop
   this.mpgHistory = function() {
     // declare a variable to parse out the local storage properties
@@ -36,8 +30,20 @@ var User = function() {
   };
 };
 
-// create a new user instance
-var user = new User();
+
+
+var Car = function( name ) {
+  // set the name of the car
+  this.name = name;
+  // create an object literal to store the return value of the getMpg computation
+  this.mpg = {};
+  // getMpg takes two numbers as arguments to return the mpg for the car.
+  this.getMpg = function( miles, gallons ) {
+    var mpg = miles/ gallons;
+    // set object value
+    this.mpg = parseFloat( mpg.toFixed(3));
+  };
+};
 
 // callback function that processes the input values as provided by user
 // into local storage
@@ -51,4 +57,11 @@ function setLocalStorage( arr, prop, val ) {
   arr.push( val );
   // push the values into the local storage values
   localStorage[prop] = JSON.stringify( arr );
+}
+
+function getVal( input ) {
+  var val = input.value;
+  var toNum = parseInt( val );
+
+  return toNum;
 }
