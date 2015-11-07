@@ -25,8 +25,17 @@
       $scope.mpg = [];
       $scope.dates = [];
       $scope.currentCar = localStorage.car;
+      $scope.id = [];
+      $scope.sessions = [];
 
       $scope.trip = {};
+
+      $scope.buildId = function() {
+        var id = Math.random().toString(36).substr(2);
+
+        $scope.id.push(id);
+        console.log("id: " + $scope.id);
+      }
 
       $scope.result = function( newCar ) {
         var mpg = $scope.miles/ $scope.gallons;
@@ -41,10 +50,15 @@
         $scope.dates.push( $scope.timeStamp().date );
         $scope.trip.date = $scope.dates;
 
-        // pushing value to outside of functional scope will allow for adding new entries into localStorage string
-        //arr.push( val );
+        // builds id
+        $scope.buildId();
+
+
+        // sets the localStorage key to the randomly assigned id as declared by
+        // buildId(). This allows for multiple entries as a database to
+        // create unique key - values
         // push the values into the local storage values as JSON data
-        localStorage.report = JSON.stringify( $scope.trip );
+        localStorage[$scope.id] = JSON.stringify( $scope.trip );
 
       };
 
