@@ -90,23 +90,3 @@ function processValues() {
   console.log( car.mpg );
   return car.mpg;
 }
-
-function submitEvent() {
-  var submit = document.getElementById("submit");
-
-  submit.addEventListener("click", function(e) {
-    var car = document.getElementById("car");
-    var carName = car.value;
-    var resultCont = document.getElementById("current-result");
-    var p = document.createElement("p");
-
-    e.preventDefault();
-    processValues();
-
-  }, false );
-}
-
-
-var init = (function() {
-  submitEvent();
-}());

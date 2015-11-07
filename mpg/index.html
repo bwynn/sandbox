@@ -1,40 +1,45 @@
 <!doctype html>
-<html>
+<html ng-app="mpgApp">
 <head>
   <title>mpg</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="script.js"></script>
+  <script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="mpgCtrl">
+
   <section id="user-input">
-    <form>
+    <form ng-submit="result(newCar)">
       <div class="form-group">
         <label for="miles">Miles</label>
-        <input id="miles" type="text"/>
+        <input ng-model="miles" type="number"/>
       </div>
       <div class="form-group">
         <label for="gallons">Gallons</label>
-        <input id="gallons" type="text"/>
+        <input ng-model="gallons" type="number"/>
       </div>
       <div class="form-group">
-        <label for="car">Car</label>
-        <input id="car" type="text"/>
+        <label for="car">Add a Car</label>
+        <input ng-model="newCar" type="text"/>
       </div>
-      <button id="submit">Submit</button>
+      <div class="form-group">
+        <label for="carName">Select a car</label>
+        <select ng-model="currentCar" ng-options="car for car in cars"></select>
+      </div>
+      <button type="submit">Submit</button>
     </form>
+    <a href="#" ng-click="getIt()">Log it</a>
   </section>
+
   <section id="user-results">
     <div id="current-result">
       <h1>Today's MPG</h1>
+      <p>{{trip.mpg[0]}} average mpg</p>
     </div>
     <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Mpg</th>
-        </tr>
-      </thead>
-      <tbody  id="results-table"></tbody>
+
     </table>
   </section>
-  <script src="script.js"></script>
+
 </body>
 </html>
