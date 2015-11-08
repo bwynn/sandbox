@@ -21,14 +21,18 @@
       // form controller
       $scope.miles = "";
       $scope.gallons = "";
-      $scope.cars = [];
-      $scope.mpg = [];
-      $scope.dates = [];
+      //$scope.cars = [];
+      //$scope.mpg = [];
+      //$scope.dates = [];
       $scope.currentCar = localStorage.car;
       $scope.id = [];
       $scope.sessions = [];
 
       $scope.trip = {};
+      //$scope.trip = [];
+      $scope.trip.cars = [];
+      $scope.trip.mpg = [];
+      $scope.trip.dates = [];
 
       $scope.buildId = function() {
         var id = Math.random().toString(36).substr(2);
@@ -41,24 +45,21 @@
         var mpg = $scope.miles/ $scope.gallons;
         // set object value
         mpg = parseFloat( mpg.toFixed(3));
-        $scope.mpg.push( mpg );
-        $scope.trip.mpg = $scope.mpg;
+        $scope.trip.mpg.push( mpg );
+        //$scope.trip.mpg = $scope.mpg;
 
-        $scope.cars.push( newCar );
-        $scope.trip.cars = $scope.cars;
+        $scope.trip.cars.push( newCar );
+        //$scope.trip.cars = $scope.cars;
 
-        $scope.dates.push( $scope.timeStamp().date );
-        $scope.trip.date = $scope.dates;
-
-        // builds id
-        $scope.buildId();
+        $scope.trip.dates.push( $scope.timeStamp().date );
+        //$scope.trip.date = $scope.dates;
 
 
         // sets the localStorage key to the randomly assigned id as declared by
         // buildId(). This allows for multiple entries as a database to
         // create unique key - values
         // push the values into the local storage values as JSON data
-        localStorage[$scope.id] = JSON.stringify( $scope.trip );
+        localStorage.history = JSON.stringify( $scope.trip );
 
       };
 
