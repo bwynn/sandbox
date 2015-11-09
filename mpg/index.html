@@ -32,20 +32,18 @@
       <h1>Today's MPG</h1>
       <p>{{trips.mpg | lastItem}} average mpg</p>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Miles Per Gallon</th>
-          <th>Car</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="item in trips">
-          <td>{{item}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="flex-group">
+      <h3>Date</h3>
+      <p ng-repeat="record in trips.dates">{{record}}</p>
+    </div>
+    <div class="flex-group">
+      <h3>Miles Per Gallon</h3>
+      <p ng-repeat="mpg in trips.mpg">{{mpg}} mpg</p>
+    </div>
+    <div class="flex-group">
+      <h3>Car</h3>
+      <p ng-repeat="car in trips.cars">{{car}}</p>
+    </div>
   </section>
 
 </body>

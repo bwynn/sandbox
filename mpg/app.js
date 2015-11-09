@@ -23,8 +23,8 @@ angular.module("mpgApp", [])
 
    $scope.timeStamp = function() {
      var date = new Date();
-     var today = date.toDateString();
-     return { date: today };
+     //var today = date.toDateString();
+     return { date: date };
    };
 
    $scope.setDataToStorage = function() {
@@ -61,6 +61,10 @@ angular.module("mpgApp", [])
    };
 
    $scope.reportData = function() {
+     if ( localStorage.history == null || localStorage == undefined ) {
+       console.log( "No history to report");
+     }
+     else {
        for (var i = 0; i < $scope.getFromStorage().data.cars.length; i++ ) {
 
            $scope.trips.cars.push( $scope.getFromStorage().data.cars[i] );
@@ -69,5 +73,6 @@ angular.module("mpgApp", [])
 
        }
        console.log("cars: " + $scope.trips.cars + ", mpg: " + $scope.trips.mpg + ", dates: " + $scope.trips.dates );
-   };
+     }
+   }();
  });
