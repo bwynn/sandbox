@@ -1,80 +1,75 @@
     angular.module("mpgApp", [])
-    .filter("mpgValue", function() {
-      return function getVal( elem ) {
-        var val = elem.value;
-
-        if ( typeof val === "string" ) {
-          var toNum = parseInt( val );
-          // check value of toNum to make sure it's a valid value
-          if ( isNaN( toNum ) ) {
-            // log an error for the time being
-            console.log("something went wrong");
-          }
-          else {
-            // return number
-            return toNum;
-          }
-        }
+    .filter("lastItem", function() {
+      return function( arr ) {
+        return arr.slice(-1)[0];
       }
     })
     .controller("mpgCtrl", function( $scope ) {
       // form controller
       $scope.miles = "";
       $scope.gallons = "";
-      //$scope.cars = [];
-      //$scope.mpg = [];
-      //$scope.dates = [];
-      $scope.currentCar = localStorage.car;
-      $scope.id = [];
-      $scope.sessions = [];
 
-      $scope.trip = {};
-      //$scope.trip = [];
-      $scope.trip.cars = [];
-      $scope.trip.mpg = [];
-      $scope.trip.dates = [];
+      $scope.trips = {
+        cars: [],
+        mpg: [],
+        dates: []
+      };
 
-      $scope.buildId = function() {
-        var id = Math.random().toString(36).substr(2);
-
-        $scope.id.push(id);
-        console.log("id: " + $scope.id);
-      }
-
-      $scope.result = function( newCar ) {
+      $scope.result = function() {
         var mpg = $scope.miles/ $scope.gallons;
         // set object value
-        mpg = parseFloat( mpg.toFixed(3));
-        $scope.trip.mpg.push( mpg );
-        //$scope.trip.mpg = $scope.mpg;
-
-        $scope.trip.cars.push( newCar );
-        //$scope.trip.cars = $scope.cars;
-
-        $scope.trip.dates.push( $scope.timeStamp().date );
-        //$scope.trip.date = $scope.dates;
-
-
-        // sets the localStorage key to the randomly assigned id as declared by
-        // buildId(). This allows for multiple entries as a database to
-        // create unique key - values
-        // push the values into the local storage values as JSON data
-        localStorage.history = JSON.stringify( $scope.trip );
-
+        return parseFloat( mpg.toFixed(3));
       };
 
       $scope.timeStamp = function() {
         var date = new Date();
         var today = date.toDateString();
         return { date: today };
-      }
-
-      $scope.getCar = function() {
-          // declare a variable to parse out the local storage properties
-          var data = JSON.parse( localStorage.car );
-          // return data object
-          console.log( data );
-          return { data : data };
       };
 
+      $scope.setDataToStorage = function() {
+        // push the values into the local storage values as JSON data
+        localStorage.history = JSON.stringify( $scope.trips );
+      };
+
+      $scope.updateData = function(newCar) {
+        var mpg = $scope.result();
+
+        $scope.trips.mpg.push( mpg );
+        //$scope.trip.mpg = $scope.mpg;
+
+        $scope.trips.cars.push( newCar );
+        //$scope.trip.cars = $scope.cars;
+
+        $scope.trips.dates.push( $scope.timeStamp().date );
+        //$scope.trip.date = $scope.dates;
+
+        // Update the new values into local storage
+        $scope.setDataToStorage();
+
+        console.log($scope.trips);
+      };
+
+      $scope.getFromStorage = function() {
+          // declare a variable to parse out the local storage properties
+          var data = JSON.parse( localStorage.history );
+          // return data object
+          //console.log( data );
+          return {
+            data : data
+          }
+      };
+
+      $scope.reportData = function() {
+
+        for (var i = 0; i < $scope.getFromStorage().data.cars.length; i++ ) {
+
+            $scope.trips.cars.push( $scope.getFromStorage().data.cars[i] );
+            $scope.trips.mpg.push( $scope.getFromStorage().data.mpg[i] );
+            $scope.trips.dates.push( $scope.getFromStorage().data.dates[i] );
+
+        }
+
+        console.log("cars: " + $scope.trips.cars + ", mpg: " + $scope.trips.mpg + ", dates: " + $scope.trips.dates );
+      }();
     });

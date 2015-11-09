@@ -9,7 +9,7 @@
 <body ng-controller="mpgCtrl">
 
   <section id="user-input">
-    <form ng-submit="result(newCar)">
+    <form ng-submit="updateData( newCar )">
       <div class="form-group">
         <label for="miles">Miles</label>
         <input ng-model="miles" type="number"/>
@@ -22,22 +22,29 @@
         <label for="car">Add a Car</label>
         <input ng-model="newCar" type="text"/>
       </div>
-      <div class="form-group">
-        <label for="carName">Select a car</label>
-        <select ng-model="currentCar" ng-options="car for car in cars"></select>
-      </div>
-      <button type="submit">Submit</button>
+      <button type="submit">Update</button>
     </form>
-    <a href="#" ng-click="getIt()">Log it</a>
+    <a href="#" ng-click="reportData()">Log it</a>
   </section>
 
   <section id="user-results">
     <div id="current-result">
       <h1>Today's MPG</h1>
-      <p>{{trip.mpg[0]}} average mpg</p>
+      <p>{{trips.mpg | lastItem}} average mpg</p>
     </div>
     <table>
-
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Miles Per Gallon</th>
+          <th>Car</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in trips">
+          <td>{{item}}</td>
+        </tr>
+      </tbody>
     </table>
   </section>
 
