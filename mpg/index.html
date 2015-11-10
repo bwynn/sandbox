@@ -22,20 +22,28 @@
         <label for="car">Add a Car</label>
         <input ng-model="newCar" type="text"/>
       </div>
-      <button type="submit">Set Local Data</button>
+      <button type="submit">Get MPG</button>
     </form>
   </section>
 
   <section id="user-results">
     <div id="current-result">
-      <h1>Today's MPG</h1>
-      <p>{{trip.mpg}} average mpg</p> <!-- lastItem filter could be applied on array -->
+      <h1>{{trip.mpg}} Average MPG</h1>
     </div>
-    <ul ng-repeat="trip in trips track by $index">
-      <li>{{trip.cars}}</li>
-      <li>{{trip.mpg}} miles per gallon</li>
-      <li>{{trip.dates}}</li>
-    </ul>
+    <div class="results" ng-repeat="trip in trips track by $index | reverse">
+      <div class="dates">
+        <h3>Date</h3>
+        <p>{{trip.dates}}</p>
+      </div>
+      <div class="mpg">
+        <h3>Miles Per Gallon</h3>
+        <p>{{trip.mpg}}</p>
+      </div>
+      <div class="cars">
+        <h3>Car</h3>
+        <p>{{trip.cars}}</p>
+      </div>
+    </div>
   </section>
 
 </body>
