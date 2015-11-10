@@ -29,10 +29,12 @@
   <section id="user-results">
     <div id="current-result">
       <h1>Today's MPG</h1>
-      <p>{{trips.mpg}} average mpg</p> <!-- lastItem filter could be applied on array -->
+      <p>{{trip.mpg}} average mpg</p> <!-- lastItem filter could be applied on array -->
     </div>
-    <ul ng-repeat="trip in history">
+    <ul ng-repeat="trip in trips track by $index">
       <li>{{trip.cars}}</li>
+      <li>{{trip.mpg}} miles per gallon</li>
+      <li>{{trip.dates}}</li>
     </ul>
   </section>
 
