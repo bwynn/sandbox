@@ -1,19 +1,27 @@
 angular.module("mpgApp", [])
- .filter("lastItem", function() {
-   return function( arr ) {
-     return arr.slice(-1)[0];
-   }
+ .factory("Trips", function() {
+   var Trips = function( cars, mpg, dates ) {
+     this.cars = cars;
+     this.mpg = mpg;
+     this.dates = dates;
+   };
+
+   return Trips;
  })
- .controller("mpgCtrl", function( $scope ) {
+ .controller("mpgCtrl", function( $scope, Trips ) {
    // form controller
    $scope.miles = "";
    $scope.gallons = "";
 
-   $scope.trips = {
+   /*$scope.trips = {
      cars: [],
      mpg: [],
      dates: []
-   };
+   };*/
+
+   $scope.history = [];
+
+   $scope.trips = new Trips();
 
    $scope.result = function() {
      var mpg = $scope.miles/ $scope.gallons;
@@ -29,25 +37,27 @@ angular.module("mpgApp", [])
 
    $scope.setDataToStorage = function() {
      // push the values into the local storage values as JSON data
-     localStorage.history = JSON.stringify( $scope.trips );
+     localStorage.history = JSON.stringify( $scope.history );
    };
 
    $scope.updateData = function(newCar) {
      var mpg = $scope.result();
 
-     $scope.trips.mpg.push( mpg );
+     $scope.trips.mpg = mpg;
      //$scope.trip.mpg = $scope.mpg;
 
-     $scope.trips.cars.push( newCar );
+     $scope.trips.cars = newCar;
      //$scope.trip.cars = $scope.cars;
 
-     $scope.trips.dates.push( $scope.timeStamp().date );
+     $scope.trips.dates = $scope.timeStamp().date;
      //$scope.trip.date = $scope.dates;
 
-     // Update the new values into local storage
+     $scope.history.push( $scope.trips );
+
      $scope.setDataToStorage();
 
-     console.log($scope.trips);
+     //console.log($scope.trips);
+     console.log( $scope.history );
    };
 
    $scope.getFromStorage = function() {
@@ -65,14 +75,16 @@ angular.module("mpgApp", [])
        console.log( "No history to report");
      }
      else {
-       for (var i = 0; i < $scope.getFromStorage().data.cars.length; i++ ) {
+       for (var i = 0; i < $scope.getFromStorage().data.length; i++ ) {
 
-           $scope.trips.cars.push( $scope.getFromStorage().data.cars[i] );
+         $scope.history.push( $scope.getFromStorage().data[i] );
+
+           /*$scope.trips.cars.push( $scope.getFromStorage().data.cars[i] );
            $scope.trips.mpg.push( $scope.getFromStorage().data.mpg[i] );
-           $scope.trips.dates.push( $scope.getFromStorage().data.dates[i] );
+           $scope.trips.dates.push( $scope.getFromStorage().data.dates[i] );*/
 
        }
-       console.log("cars: " + $scope.trips.cars + ", mpg: " + $scope.trips.mpg + ", dates: " + $scope.trips.dates );
+       console.log( $scope.history );
      }
    }();
  });
