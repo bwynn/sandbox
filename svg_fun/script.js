@@ -15,7 +15,7 @@ var unloadSequence = [
   { e: $("section#content"), p: { opacity: 1 }, o: { duration: 400, easing: "spring" } }
 ];
 
-function animDelay( sequence1, sequence2) {
+function animDelay(sequence1, sequence2) {
   setTimeout(function() {
     $.Velocity.RunSequence( sequence1 );
     setTimeout(function() {

@@ -1,0 +1,47 @@
+{
+  "1": {
+    "name": "Adriano De Souza",
+    "country": "Brazil",
+    "points": 57000
+  },
+  "2": {
+    "name": "Mick Fanning",
+    "country": "Australia",
+    "points": 54650
+  },
+  "3": {
+    "name": "Gabriel Medina",
+    "country": "Brazil",
+    "points": 51600
+  },
+  "4": {
+    "name": "Felipe Toledo",
+    "country": "Brazil",
+    "points": 50950
+  },
+  "5": {
+    "name": "Owen Wright",
+    "country": "Australia",
+    "points": 42700
+  },
+  "6": {
+    "name": "Italo Ferreira",
+    "country": "Brazil",
+    "points": 41600
+  },
+  "7": {
+    "name": "Jeremy Flores",
+    "country": "France",
+    "points": 41200
+  },
+  "8": {
+    "name": "Kelly Slater",
+    "country": "USA",
+    "points": 37600
+  },
+  "9": {
+    "name": "Nat Young",
+    "country": "USA",
+    "points": 33200
+  }
+}
