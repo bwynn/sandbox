@@ -12,9 +12,9 @@ angular.module("myApp", ['ngRoute'])
   controller("myCtrl", function($scope, $http) {
     $scope.world = "World";
 
-    $http.get('/static/js/info.json')
+    $http.get('/static/mock/info.json')
       .success(function(response) {
-        $scope.competitors = response.competitors;
+        $scope.competitors = response;
       }).
       error(function(response, status) {
         console.log(response);

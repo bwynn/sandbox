@@ -1,16 +1,12 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
 
 app.use('/static', express.static(__dirname + '/public'));
 
-// set rendering engine
-app.set('view engine', 'jade');
-app.set('views', __dirname + '/templates');
-
-
 app.get('/', function(req, res) {
-  res.render('index');
+  res.sendfile(path.join(__dirname + '/templates/index.html'));
 });
 
 // Start server

@@ -1,0 +1,73 @@
+[
+  {
+    "name": "Adriano De Souza",
+    "country": "Brazil",
+    "points": 57000,
+    "results": [
+      3,2,1,13,13,5,13,2,3,13,1
+    ]
+  },
+  {
+    "name": "Mick Fanning",
+    "country": "Australia",
+    "points": 54650,
+    "results": [
+      5,1,13,9,9,2,13,1,5,13,3
+    ]
+  },
+  {
+    "name": "Gabriel Medina",
+    "country": "Brazil",
+    "points": 51600,
+    "results": [
+      13,5,25,13,13,5,2,3,1,5,2
+    ]
+  },
+  {
+    "name": "Felipe Toledo",
+    "country": "Brazil",
+    "points": 50950,
+    "results": [
+      1,5,25,1,13,13,9,3,25,1,13
+    ]
+  },
+  {
+    "name": "Owen Wright",
+    "country": "Australia",
+    "points": 43600,
+    "results": [
+      13,5,9,5,1,13,3,9,5,25,"INJ"
+    ]
+  },
+  {
+    "name": "Julian Wilson",
+    "country": "Australia",
+    "points": 42700,
+    "results": [
+
+    ]
+  }
+  {
+    "name": "Italo Ferreira",
+    "country": "Brazil",
+    "points": 41600,
+    "results": [
+
+    ]
+  },
+  {
+    "name": "Jeremy Flores",
+    "country": "France",
+    "points": 41200
+  },
+  {
+    "name": "Kelly Slater",
+    "country": "USA",
+    "points": 37600
+  },
+  {
+    "name": "Nat Young",
+    "country": "USA",
+    "points": 33200
+  }
+]
