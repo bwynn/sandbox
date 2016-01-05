@@ -22,27 +22,27 @@
         <label for="car">Add a Car</label>
         <input ng-model="newCar" type="text"/>
       </div>
-      <button type="submit">Update</button>
+      <button type="submit">Get MPG</button>
     </form>
-    <a href="#" ng-click="reportData()">Log it</a>
   </section>
 
   <section id="user-results">
     <div id="current-result">
-      <h1>Today's MPG</h1>
-      <p>{{trips.mpg | lastItem}} average mpg</p>
+      <h1>{{trip.mpg}} Average MPG</h1>
     </div>
-    <div class="flex-group">
-      <h3>Date</h3>
-      <p ng-repeat="record in trips.dates">{{record}}</p>
-    </div>
-    <div class="flex-group">
-      <h3>Miles Per Gallon</h3>
-      <p ng-repeat="mpg in trips.mpg">{{mpg}} mpg</p>
-    </div>
-    <div class="flex-group">
-      <h3>Car</h3>
-      <p ng-repeat="car in trips.cars">{{car}}</p>
+    <div class="results" ng-repeat="trip in trips track by $index | reverse">
+      <div class="dates">
+        <h3>Date</h3>
+        <p>{{trip.dates}}</p>
+      </div>
+      <div class="mpg">
+        <h3>Miles Per Gallon</h3>
+        <p>{{trip.mpg}}</p>
+      </div>
+      <div class="cars">
+        <h3>Car</h3>
+        <p>{{trip.cars}}</p>
+      </div>
     </div>
   </section>
 
