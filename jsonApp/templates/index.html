@@ -9,10 +9,14 @@
 <body>
   <div ng-controller="myCtrl">
     <input type="text" ng-model="search"/>
-    <div ng-repeat="person in competitors | filter:search">
+    <div ng-repeat="person in competitors | filter:search | filter:selected">
       <h1>{{person.name}}</h1>
       <p>Country: {{person.country}}</p>
       <p>Total Points: {{person.points}}</p>
+      <p>2015 Results</p>
+      <ul ng-repeat="event in events">
+        <li>{{event.name}}: </li>
+      </ul>
     </div>
   </div>
 </body>

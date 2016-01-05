@@ -44,30 +44,39 @@
     "country": "Australia",
     "points": 42700,
     "results": [
-
+      2,13,5,25,2,2,13,13,3,25,13
     ]
-  }
+  },
   {
     "name": "Italo Ferreira",
     "country": "Brazil",
     "points": 41600,
     "results": [
-
+      9,25,13,3,5,13,5,9,5,2,13
     ]
   },
   {
     "name": "Jeremy Flores",
     "country": "France",
-    "points": 41200
+    "points": 41200,
+    "results": [
+      25,9,9,13,3,"INJ",1,13,9,5,9
+    ]
   },
   {
     "name": "Kelly Slater",
     "country": "USA",
-    "points": 37600
+    "points": 37600,
+    "results": [
+      13,9,5,13,9,3,5,9,13,13,5
+    ]
   },
   {
     "name": "Nat Young",
     "country": "USA",
-    "points": 33200
+    "points": 33200,
+    "results": [
+      13,3,3,13,13,9,25,5,13,9,25
+    ]
   }
 ]

@@ -1,0 +1,68 @@
+[
+  {
+    "location": "Gold Coast, Queensland, Australia",
+    "name": "Quiksilver Pro Gold Coast",
+    "stop_number": 1,
+    "window": ["Feb 28", "Mar 13"]
+  },
+  {
+    "location": "Bells Beach, Victoria, Australia",
+    "name": "Rip Curl Pro Bells Beach",
+    "stop_number": 2,
+    "window": ["Apr 01", "Apr 12"]
+  },
+  {
+    "location": "Margaret River, Western Australia",
+    "name": "Drug Aware Margaret River Pro",
+    "stop_number": 3,
+    "window": ["Apr 15", "Apr 26"]
+  },
+  {
+    "location": "Barra Da Tijuca, Rio De Janeiro, Brazil",
+    "name": "Oi Rio Pro",
+    "stop_number": 4,
+    "window": ["May 11", "May 22"]
+  },
+  {
+    "location": "Namotu, Tavarua, Fiji",
+    "name": "Fiji Pro",
+    "stop_number": 5,
+    "window": ["Jun 07", "Jun 19"]
+  },
+  {
+    "location": "Jeffreys Bay, Eastern Cape, South Africa",
+    "name": "J-Bay Open",
+    "stop_number": 6,
+    "window": ["Jul 08", "Jul 19"]
+  },
+  {
+    "location": "Teahupo'o, Tahiti, French Poynesia",
+    "name": "Billabong Pro Tahiti",
+    "stop_number": 7,
+    "window": ["Aug 14", "Aug 25"]
+  },
+  {
+    "location": "Lower Trestles, California, USA",
+    "name": "Hurley Pro at Trestles",
+    "stop_number": 8,
+    "window": ["Sep 09", "Sep 20"]
+  },
+  {
+    "location": "Landes, Aquitaine, France",
+    "name": "Quiksilver Pro France",
+    "stop_number": 9,
+    "window": ["Oct 06", "Oct 17"]
+  },
+  {
+    "location": "Peniche/Cascais, Portugal",
+    "name": "Moche Rip Curl Pro Portugal",
+    "stop_number": 10,
+    "window": ["Oct 20", "Oct 31"]
+  },
+  {
+    "location": "Banzai Pipeline, Oahu, Hawaii",
+    "name": "Billabong Pipe Masters",
+    "stop_number": 11,
+    "window": ["Dec 08", "Dec 20"]
+  }
+]
