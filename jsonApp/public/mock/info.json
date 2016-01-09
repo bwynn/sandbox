@@ -1,153 +1,153 @@
 {
-"competitors": [
-  {
-    "name": "Adriano De Souza",
-    "country": "Brazil",
-    "points": 57000,
-    "results": [
-      3,2,1,13,13,5,13,2,3,13,1
-    ]
-  },
-  {
-    "name": "Mick Fanning",
-    "country": "Australia",
-    "points": 54650,
-    "results": [
-      5,1,13,9,9,2,13,1,5,13,3
-    ]
-  },
-  {
-    "name": "Gabriel Medina",
-    "country": "Brazil",
-    "points": 51600,
-    "results": [
-      13,5,25,13,13,5,2,3,1,5,2
-    ]
-  },
-  {
-    "name": "Felipe Toledo",
-    "country": "Brazil",
-    "points": 50950,
-    "results": [
-      1,5,25,1,13,13,9,3,25,1,13
-    ]
-  },
-  {
-    "name": "Owen Wright",
-    "country": "Australia",
-    "points": 43600,
-    "results": [
-      13,5,9,5,1,13,3,9,5,25,"INJ"
-    ]
-  },
-  {
-    "name": "Julian Wilson",
-    "country": "Australia",
-    "points": 42700,
-    "results": [
-      2,13,5,25,2,2,13,13,3,25,13
-    ]
-  },
-  {
-    "name": "Italo Ferreira",
-    "country": "Brazil",
-    "points": 41600,
-    "results": [
-      9,25,13,3,5,13,5,9,5,2,13
-    ]
-  },
-  {
-    "name": "Jeremy Flores",
-    "country": "France",
-    "points": 41200,
-    "results": [
-      25,9,9,13,3,"INJ",1,13,9,5,9
-    ]
-  },
-  {
-    "name": "Kelly Slater",
-    "country": "USA",
-    "points": 37600,
-    "results": [
-      13,9,5,13,9,3,5,9,13,13,5
-    ]
-  },
-  {
-    "name": "Nat Young",
-    "country": "USA",
-    "points": 33200,
-    "results": [
-      13,3,3,13,13,9,25,5,13,9,25
-    ]
-  }
-],
+  "competitors": [
+    {
+      "name": "Adriano De Souza",
+      "country": "Brazil",
+      "points": 57000,
+      "results": [
+        3,2,1,13,13,5,13,2,3,13,1
+      ]
+    },
+    {
+      "name": "Mick Fanning",
+      "country": "Australia",
+      "points": 54650,
+      "results": [
+        5,1,13,9,9,2,13,1,5,13,3
+      ]
+    },
+    {
+      "name": "Gabriel Medina",
+      "country": "Brazil",
+      "points": 51600,
+      "results": [
+        13,5,25,13,13,5,2,3,1,5,2
+      ]
+    },
+    {
+      "name": "Felipe Toledo",
+      "country": "Brazil",
+      "points": 50950,
+      "results": [
+        1,5,25,1,13,13,9,3,25,1,13
+      ]
+    },
+    {
+      "name": "Owen Wright",
+      "country": "Australia",
+      "points": 43600,
+      "results": [
+        13,5,9,5,1,13,3,9,5,25,"INJ"
+      ]
+    },
+    {
+      "name": "Julian Wilson",
+      "country": "Australia",
+      "points": 42700,
+      "results": [
+        2,13,5,25,2,2,13,13,3,25,13
+      ]
+    },
+    {
+      "name": "Italo Ferreira",
+      "country": "Brazil",
+      "points": 41600,
+      "results": [
+        9,25,13,3,5,13,5,9,5,2,13
+      ]
+    },
+    {
+      "name": "Jeremy Flores",
+      "country": "France",
+      "points": 41200,
+      "results": [
+        25,9,9,13,3,"INJ",1,13,9,5,9
+      ]
+    },
+    {
+      "name": "Kelly Slater",
+      "country": "USA",
+      "points": 37600,
+      "results": [
+        13,9,5,13,9,3,5,9,13,13,5
+      ]
+    },
+    {
+      "name": "Nat Young",
+      "country": "USA",
+      "points": 33200,
+      "results": [
+        13,3,3,13,13,9,25,5,13,9,25
+      ]
+    }
+  ],
 
-"events": [
-  {
-    "location": "Gold Coast, Queensland, Australia",
-    "name": "Quiksilver Pro Gold Coast",
-    "stop_number": 1,
-    "window": ["Feb 28", "Mar 13"]
-  },
-  {
-    "location": "Bells Beach, Victoria, Australia",
-    "name": "Rip Curl Pro Bells Beach",
-    "stop_number": 2,
-    "window": ["Apr 01", "Apr 12"]
-  },
-  {
-    "location": "Margaret River, Western Australia",
-    "name": "Drug Aware Margaret River Pro",
-    "stop_number": 3,
-    "window": ["Apr 15", "Apr 26"]
-  },
-  {
-    "location": "Barra Da Tijuca, Rio De Janeiro, Brazil",
-    "name": "Oi Rio Pro",
-    "stop_number": 4,
-    "window": ["May 11", "May 22"]
-  },
-  {
-    "location": "Namotu, Tavarua, Fiji",
-    "name": "Fiji Pro",
-    "stop_number": 5,
-    "window": ["Jun 07", "Jun 19"]
-  },
-  {
-    "location": "Jeffreys Bay, Eastern Cape, South Africa",
-    "name": "J-Bay Open",
-    "stop_number": 6,
-    "window": ["Jul 08", "Jul 19"]
-  },
-  {
-    "location": "Teahupo'o, Tahiti, French Poynesia",
-    "name": "Billabong Pro Tahiti",
-    "stop_number": 7,
-    "window": ["Aug 14", "Aug 25"]
-  },
-  {
-    "location": "Lower Trestles, California, USA",
-    "name": "Hurley Pro at Trestles",
-    "stop_number": 8,
-    "window": ["Sep 09", "Sep 20"]
-  },
-  {
-    "location": "Landes, Aquitaine, France",
-    "name": "Quiksilver Pro France",
-    "stop_number": 9,
-    "window": ["Oct 06", "Oct 17"]
-  },
-  {
-    "location": "Peniche/Cascais, Portugal",
-    "name": "Moche Rip Curl Pro Portugal",
-    "stop_number": 10,
-    "window": ["Oct 20", "Oct 31"]
-  },
-  {
-    "location": "Banzai Pipeline, Oahu, Hawaii",
-    "name": "Billabong Pipe Masters",
-    "stop_number": 11,
-    "window": ["Dec 08", "Dec 20"]
-  }
-]
+  "events": [
+    {
+      "location": "Gold Coast, Queensland, Australia",
+      "name": "Quiksilver Pro Gold Coast",
+      "stop_number": 1,
+      "window": ["Feb 28", "Mar 13"]
+    },
+    {
+      "location": "Bells Beach, Victoria, Australia",
+      "name": "Rip Curl Pro Bells Beach",
+      "stop_number": 2,
+      "window": ["Apr 01", "Apr 12"]
+    },
+    {
+      "location": "Margaret River, Western Australia",
+      "name": "Drug Aware Margaret River Pro",
+      "stop_number": 3,
+      "window": ["Apr 15", "Apr 26"]
+    },
+    {
+      "location": "Barra Da Tijuca, Rio De Janeiro, Brazil",
+      "name": "Oi Rio Pro",
+      "stop_number": 4,
+      "window": ["May 11", "May 22"]
+    },
+    {
+      "location": "Namotu, Tavarua, Fiji",
+      "name": "Fiji Pro",
+      "stop_number": 5,
+      "window": ["Jun 07", "Jun 19"]
+    },
+    {
+      "location": "Jeffreys Bay, Eastern Cape, South Africa",
+      "name": "J-Bay Open",
+      "stop_number": 6,
+      "window": ["Jul 08", "Jul 19"]
+    },
+    {
+      "location": "Teahupo'o, Tahiti, French Poynesia",
+      "name": "Billabong Pro Tahiti",
+      "stop_number": 7,
+      "window": ["Aug 14", "Aug 25"]
+    },
+    {
+      "location": "Lower Trestles, California, USA",
+      "name": "Hurley Pro at Trestles",
+      "stop_number": 8,
+      "window": ["Sep 09", "Sep 20"]
+    },
+    {
+      "location": "Landes, Aquitaine, France",
+      "name": "Quiksilver Pro France",
+      "stop_number": 9,
+      "window": ["Oct 06", "Oct 17"]
+    },
+    {
+      "location": "Peniche/Cascais, Portugal",
+      "name": "Moche Rip Curl Pro Portugal",
+      "stop_number": 10,
+      "window": ["Oct 20", "Oct 31"]
+    },
+    {
+      "location": "Banzai Pipeline, Oahu, Hawaii",
+      "name": "Billabong Pipe Masters",
+      "stop_number": 11,
+      "window": ["Dec 08", "Dec 20"]
+    }
+  ]
 }

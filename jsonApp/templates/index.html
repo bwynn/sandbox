@@ -9,13 +9,21 @@
 <body>
   <div ng-controller="myCtrl">
     <input type="text" ng-model="search"/>
-    <div ng-repeat="person in competitors | filter:search | filter:selected">
+    <div ng-repeat="person in data.competitors | filter:search | filter:selected">
       <h1>{{person.name}}</h1>
       <p>Country: {{person.country}}</p>
       <p>Total Points: {{person.points}}</p>
       <p>2015 Results</p>
-      <button ng-click="results()">See Results</button>
+        <div class="row">
+          <div ng-repeat="event in data.events" class="column">
+            <p>{{event.name}}</p>
+          </div>
+          <div ng-repeat="result in person.results track by $index" class="column">
+            <p>{{result}}</p>
+          </div>
+        </div>
     </div>
+
   </div>
 </body>
 </html>

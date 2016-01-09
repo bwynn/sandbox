@@ -14,8 +14,7 @@ angular.module("myApp", ['ngRoute'])
     // get the user information
     $http.get('/static/mock/info.json')
       .success(function(response) {
-        $scope.competitors = response.competitors;
-        $scope.events = response.events;
+        $scope.data = response;
       }).
       error(function(response, status) {
         console.log(response);
